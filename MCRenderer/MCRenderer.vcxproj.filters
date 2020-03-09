@@ -1,0 +1,4118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\blockstates">
+      <UniqueIdentifier>{f6535926-df36-4a3f-86ca-35da67242a47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\textures">
+      <UniqueIdentifier>{a5c42516-7c20-4d6a-92bc-26577ca40ee5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\textures\block">
+      <UniqueIdentifier>{f427dd73-4da0-49b3-a2bf-d0b3235d4d43}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DirectionEnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Biomes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="glad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GLSLReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="khrplatform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Palette.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegionLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Asset.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NBTTags.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gunzip.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MCRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NBTTags.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GLSLReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Palette.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Asset.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegionLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="glad.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="minecraft\textures\block\acacia_door_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\acacia_door_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\acacia_leaves.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\acacia_log.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\acacia_log_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\acacia_planks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\acacia_sapling.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\acacia_trapdoor.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\activator_rail.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\activator_rail_on.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\allium.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\andesite.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\anvil.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\anvil_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\attached_melon_stem.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\attached_pumpkin_stem.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\azure_bluet.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bamboo_large_leaves.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bamboo_singleleaf.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bamboo_small_leaves.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bamboo_stage0.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bamboo_stalk.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\barrel_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\barrel_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\barrel_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\barrel_top_open.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\beacon.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bedrock.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bee_nest_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bee_nest_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bee_nest_front_honey.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bee_nest_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bee_nest_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\beehive_end.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\beehive_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\beehive_front_honey.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\beehive_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\beetroots_stage0.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\beetroots_stage1.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\beetroots_stage2.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\beetroots_stage3.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bell_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bell_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bell_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\birch_door_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\birch_door_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\birch_leaves.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\birch_log.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\birch_log_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\birch_planks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\birch_sapling.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\birch_trapdoor.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\black_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\black_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\black_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\black_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\black_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\black_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\black_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\black_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\blast_furnace_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\blast_furnace_front_on.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\blast_furnace_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\blast_furnace_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\blue_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\blue_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\blue_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\blue_ice.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\blue_orchid.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\blue_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\blue_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\blue_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\blue_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\blue_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bone_block_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bone_block_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bookshelf.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brain_coral.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brain_coral_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brain_coral_fan.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brewing_stand.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brewing_stand_base.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bricks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brown_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brown_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brown_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brown_mushroom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brown_mushroom_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brown_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brown_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brown_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brown_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\brown_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bubble_coral.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bubble_coral_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\bubble_coral_fan.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cactus_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cactus_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cactus_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cake_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cake_inner.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cake_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cake_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\campfire_fire.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\campfire_log.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\campfire_log_lit.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\carrots_stage0.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\carrots_stage1.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\carrots_stage2.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\carrots_stage3.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cartography_table_side1.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cartography_table_side2.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cartography_table_side3.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cartography_table_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\carved_pumpkin.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cauldron_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cauldron_inner.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cauldron_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cauldron_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\chain_command_block_back.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\chain_command_block_conditional.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\chain_command_block_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\chain_command_block_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\chipped_anvil_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\chiseled_quartz_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\chiseled_quartz_block_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\chiseled_red_sandstone.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\chiseled_sandstone.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\chiseled_stone_bricks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\chorus_flower.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\chorus_flower_dead.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\chorus_plant.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\clay.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\coal_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\coal_ore.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\coarse_dirt.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cobblestone.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cobweb.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cocoa_stage0.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cocoa_stage1.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cocoa_stage2.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\command_block_back.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\command_block_conditional.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\command_block_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\command_block_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\comparator.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\comparator_on.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\composter_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\composter_compost.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\composter_ready.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\composter_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\composter_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\conduit.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cornflower.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cracked_stone_bricks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\crafting_table_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\crafting_table_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\crafting_table_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cut_red_sandstone.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cut_sandstone.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cyan_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cyan_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cyan_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cyan_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cyan_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cyan_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cyan_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\cyan_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\damaged_anvil_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dandelion.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dark_oak_door_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dark_oak_door_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dark_oak_leaves.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dark_oak_log.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dark_oak_log_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dark_oak_planks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dark_oak_sapling.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dark_oak_trapdoor.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dark_prismarine.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\daylight_detector_inverted_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\daylight_detector_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\daylight_detector_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_brain_coral.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_brain_coral_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_brain_coral_fan.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_bubble_coral.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_bubble_coral_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_bubble_coral_fan.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_bush.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_fire_coral.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_fire_coral_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_fire_coral_fan.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_horn_coral.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_horn_coral_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_horn_coral_fan.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_tube_coral.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_tube_coral_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dead_tube_coral_fan.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\debug.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\debug2.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\destroy_stage_0.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\destroy_stage_1.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\destroy_stage_2.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\destroy_stage_3.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\destroy_stage_4.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\destroy_stage_5.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\destroy_stage_6.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\destroy_stage_7.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\destroy_stage_8.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\destroy_stage_9.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\detector_rail.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\detector_rail_on.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\diamond_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\diamond_ore.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\diorite.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dirt.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dispenser_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dispenser_front_vertical.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dragon_egg.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dried_kelp_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dried_kelp_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dried_kelp_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dropper_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\dropper_front_vertical.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\emerald_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\emerald_ore.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\enchanting_table_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\enchanting_table_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\enchanting_table_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\end_portal_frame_eye.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\end_portal_frame_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\end_portal_frame_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\end_rod.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\end_stone.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\end_stone_bricks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\farmland.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\farmland_moist.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\fern.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\fire_0.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\fire_1.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\fire_coral.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\fire_coral_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\fire_coral_fan.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\fletching_table_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\fletching_table_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\fletching_table_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\flower_pot.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\frosted_ice_0.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\frosted_ice_1.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\frosted_ice_2.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\frosted_ice_3.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\furnace_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\furnace_front_on.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\furnace_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\furnace_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\glowstone.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\gold_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\gold_ore.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\granite.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\grass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\grass_block_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\grass_block_side_overlay.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\grass_block_snow.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\grass_block_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\grass_path_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\grass_path_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\gravel.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\gray_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\gray_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\gray_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\gray_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\gray_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\gray_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\gray_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\gray_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\green_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\green_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\green_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\green_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\green_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\green_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\green_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\green_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\grindstone_pivot.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\grindstone_round.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\grindstone_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\hay_block_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\hay_block_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\honey_block_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\honey_block_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\honey_block_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\honeycomb_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\hopper_inside.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\hopper_outside.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\hopper_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\horn_coral.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\horn_coral_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\horn_coral_fan.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\ice.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\iron_bars.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\iron_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\iron_door_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\iron_door_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\iron_ore.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\iron_trapdoor.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\item_frame.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\jack_o_lantern.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\jigsaw_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\jigsaw_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\jigsaw_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\jukebox_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\jukebox_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\jungle_door_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\jungle_door_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\jungle_leaves.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\jungle_log.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\jungle_log_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\jungle_planks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\jungle_sapling.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\jungle_trapdoor.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\kelp.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\kelp_plant.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\ladder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lantern.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lapis_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lapis_ore.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\large_fern_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\large_fern_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lava_flow.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lava_still.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lectern_base.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lectern_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lectern_sides.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lectern_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lever.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_blue_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_blue_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_blue_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_blue_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_blue_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_blue_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_blue_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_blue_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_gray_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_gray_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_gray_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_gray_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_gray_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_gray_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_gray_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\light_gray_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lilac_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lilac_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lily_of_the_valley.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lily_pad.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lime_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lime_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lime_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lime_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lime_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lime_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lime_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\lime_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\loom_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\loom_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\loom_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\loom_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\magenta_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\magenta_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\magenta_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\magenta_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\magenta_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\magenta_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\magenta_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\magenta_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\magma.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\melon_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\melon_stem.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\melon_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\mossy_cobblestone.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\mossy_stone_bricks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\mushroom_block_inside.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\mushroom_stem.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\mycelium_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\mycelium_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\nether_bricks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\nether_portal.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\nether_quartz_ore.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\nether_wart_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\nether_wart_stage0.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\nether_wart_stage1.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\nether_wart_stage2.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\netherrack.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\note_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\oak_door_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\oak_door_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\oak_leaves.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\oak_log.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\oak_log_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\oak_planks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\oak_sapling.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\oak_trapdoor.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\observer_back.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\observer_back_on.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\observer_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\observer_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\observer_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\obsidian.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\orange_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\orange_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\orange_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\orange_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\orange_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\orange_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\orange_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\orange_tulip.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\orange_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\oxeye_daisy.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\packed_ice.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\peony_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\peony_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\pink_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\pink_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\pink_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\pink_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\pink_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\pink_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\pink_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\pink_tulip.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\pink_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\piston_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\piston_inner.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\piston_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\piston_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\piston_top_sticky.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\podzol_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\podzol_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\polished_andesite.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\polished_diorite.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\polished_granite.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\poppy.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\potatoes_stage0.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\potatoes_stage1.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\potatoes_stage2.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\potatoes_stage3.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\powered_rail.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\powered_rail_on.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\prismarine.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\prismarine_bricks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\pumpkin_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\pumpkin_stem.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\pumpkin_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\purple_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\purple_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\purple_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\purple_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\purple_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\purple_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\purple_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\purple_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\purpur_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\purpur_pillar.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\purpur_pillar_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\quartz_block_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\quartz_block_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\quartz_block_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\quartz_pillar.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\quartz_pillar_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\rail.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\rail_corner.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_mushroom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_mushroom_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_nether_bricks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_sand.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_sandstone.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_sandstone_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_sandstone_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_tulip.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\red_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\redstone_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\redstone_dust_dot.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\redstone_dust_line0.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\redstone_dust_line1.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\redstone_dust_overlay.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\redstone_lamp.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\redstone_lamp_on.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\redstone_ore.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\redstone_torch.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\redstone_torch_off.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\repeater.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\repeater_on.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\repeating_command_block_back.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\repeating_command_block_conditional.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\repeating_command_block_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\repeating_command_block_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\rose_bush_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\rose_bush_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sand.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sandstone.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sandstone_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sandstone_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\scaffolding_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\scaffolding_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\scaffolding_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sea_lantern.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sea_pickle.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\seagrass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\slime_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\smithing_table_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\smithing_table_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\smithing_table_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\smithing_table_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\smoker_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\smoker_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\smoker_front_on.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\smoker_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\smoker_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\smooth_stone.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\smooth_stone_slab_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\snow.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\soul_sand.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\spawner.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sponge.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\spruce_door_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\spruce_door_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\spruce_leaves.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\spruce_log.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\spruce_log_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\spruce_planks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\spruce_sapling.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\spruce_trapdoor.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stone.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stone_bricks.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stonecutter_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stonecutter_saw.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stonecutter_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stonecutter_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stripped_acacia_log.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stripped_acacia_log_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stripped_birch_log.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stripped_birch_log_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stripped_dark_oak_log.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stripped_dark_oak_log_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stripped_jungle_log.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stripped_jungle_log_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stripped_oak_log.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stripped_oak_log_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stripped_spruce_log.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\stripped_spruce_log_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\structure_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\structure_block_corner.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\structure_block_data.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\structure_block_load.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\structure_block_save.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sugar_cane.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sunflower_back.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sunflower_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sunflower_front.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sunflower_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sweet_berry_bush_stage0.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sweet_berry_bush_stage1.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sweet_berry_bush_stage2.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\sweet_berry_bush_stage3.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\tall_grass_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\tall_grass_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\tall_seagrass_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\tall_seagrass_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\tnt_bottom.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\tnt_side.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\tnt_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\torch.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\tripwire.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\tripwire_hook.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\tube_coral.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\tube_coral_block.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\tube_coral_fan.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\turtle_egg.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\turtle_egg_slightly_cracked.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\turtle_egg_very_cracked.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\vine.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\water_flow.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\water_overlay.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\water_still.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\wet_sponge.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\wheat_stage0.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\wheat_stage1.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\wheat_stage2.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\wheat_stage3.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\wheat_stage4.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\wheat_stage5.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\wheat_stage6.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\wheat_stage7.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\white_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\white_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\white_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\white_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\white_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\white_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\white_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\white_tulip.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\white_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\wither_rose.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\yellow_concrete.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\yellow_concrete_powder.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\yellow_glazed_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\yellow_shulker_box.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\yellow_stained_glass.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\yellow_stained_glass_pane_top.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\yellow_terracotta.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="minecraft\textures\block\yellow_wool.png">
+      <Filter>Resource Files\textures\block</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="minecraft\textures\block\blast_furnace_front_on.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\campfire_fire.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\campfire_log_lit.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\chain_command_block_back.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\chain_command_block_conditional.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\chain_command_block_front.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\chain_command_block_side.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\command_block_back.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\command_block_conditional.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\command_block_front.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\command_block_side.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\fire_0.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\fire_1.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\kelp.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\kelp_plant.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\lantern.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\lava_flow.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\lava_still.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\magma.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\nether_portal.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\prismarine.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\repeating_command_block_back.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\repeating_command_block_conditional.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\repeating_command_block_front.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\repeating_command_block_side.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\sea_lantern.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\seagrass.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\smoker_front_on.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\stonecutter_saw.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\tall_seagrass_bottom.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\tall_seagrass_top.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\water_flow.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\textures\block\water_still.png.mcmeta">
+      <Filter>Resource Files\textures\block</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_leaves.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_log.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_planks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_pressure_plate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_sapling.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_sign.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_trapdoor.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_wall_sign.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_wood.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\activator_rail.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\air.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\allium.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\andesite.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\andesite_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\andesite_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\andesite_wall.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\anvil.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\attached_melon_stem.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\attached_pumpkin_stem.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\azure_bluet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\bamboo.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\bamboo_sapling.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\barrel.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\barrier.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\beacon.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\bedrock.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\bee_nest.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\beehive.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\beetroots.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\bell.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_button.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_door.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_fence.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_fence_gate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_leaves.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_log.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_planks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_pressure_plate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_sapling.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_sign.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_trapdoor.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_wall_sign.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\birch_wood.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\black_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\black_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\black_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\black_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\black_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\black_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\black_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\black_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\black_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\black_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\black_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\black_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blast_furnace.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blue_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blue_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blue_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blue_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blue_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blue_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blue_ice.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blue_orchid.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blue_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blue_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blue_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blue_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blue_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\blue_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\bone_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\bookshelf.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brain_coral.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brain_coral_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brain_coral_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brain_coral_wall_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brewing_stand.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brick_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brick_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brick_wall.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\bricks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brown_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brown_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brown_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brown_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brown_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brown_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brown_mushroom.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brown_mushroom_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brown_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brown_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brown_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brown_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brown_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\brown_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\bubble_column.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\bubble_coral.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\bubble_coral_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\bubble_coral_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\bubble_coral_wall_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cactus.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cake.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\campfire.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\carrots.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cartography_table.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\carved_pumpkin.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cauldron.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cave_air.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\chain_command_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\chest.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\chipped_anvil.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\chiseled_quartz_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\chiseled_red_sandstone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\chiseled_sandstone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\chiseled_stone_bricks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\chorus_flower.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\chorus_plant.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\clay.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\coal_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\coal_ore.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\coarse_dirt.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cobblestone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cobblestone_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cobblestone_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cobblestone_wall.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cobweb.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cocoa.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\command_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\comparator.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\composter.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\conduit.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cornflower.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cracked_stone_bricks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\crafting_table.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\creeper_head.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\creeper_wall_head.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cut_red_sandstone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cut_red_sandstone_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cut_sandstone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cut_sandstone_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cyan_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cyan_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cyan_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cyan_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cyan_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cyan_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cyan_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cyan_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cyan_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cyan_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cyan_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\cyan_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\damaged_anvil.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dandelion.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_button.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_door.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_fence.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_fence_gate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_leaves.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_log.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_planks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_pressure_plate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_sapling.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_sign.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_trapdoor.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_wall_sign.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_oak_wood.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_prismarine.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_prismarine_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dark_prismarine_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\daylight_detector.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_brain_coral.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_brain_coral_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_brain_coral_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_brain_coral_wall_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_bubble_coral.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_bubble_coral_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_bubble_coral_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_bubble_coral_wall_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_bush.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_fire_coral.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_fire_coral_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_fire_coral_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_fire_coral_wall_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_horn_coral.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_horn_coral_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_horn_coral_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_horn_coral_wall_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_tube_coral.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_tube_coral_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_tube_coral_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dead_tube_coral_wall_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\detector_rail.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\diamond_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\diamond_ore.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\diorite.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\diorite_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\diorite_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\diorite_wall.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dirt.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dispenser.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dragon_egg.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dragon_head.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dragon_wall_head.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dried_kelp_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\dropper.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\emerald_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\emerald_ore.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\enchanting_table.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\end_gateway.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\end_portal.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\end_portal_frame.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\end_rod.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\end_stone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\end_stone_brick_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\end_stone_brick_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\end_stone_brick_wall.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\end_stone_bricks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\ender_chest.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\farmland.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\fern.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\fire.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\fire_coral.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\fire_coral_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\fire_coral_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\fire_coral_wall_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\fletching_table.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\flower_pot.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\frosted_ice.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\furnace.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\glowstone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gold_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gold_ore.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\granite.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\granite_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\granite_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\granite_wall.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\grass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\grass_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\grass_path.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gravel.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gray_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gray_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gray_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gray_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gray_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gray_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gray_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gray_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gray_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gray_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gray_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\gray_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\green_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\green_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\green_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\green_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\green_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\green_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\green_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\green_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\green_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\green_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\green_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\green_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\grindstone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\hay_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\heavy_weighted_pressure_plate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\honey_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\honeycomb_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\hopper.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\horn_coral.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\horn_coral_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\horn_coral_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\horn_coral_wall_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\ice.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\infested_chiseled_stone_bricks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\infested_cobblestone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\infested_cracked_stone_bricks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\infested_mossy_stone_bricks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\infested_stone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\infested_stone_bricks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\iron_bars.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\iron_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\iron_door.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\iron_ore.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\iron_trapdoor.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\item_frame.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jack_o_lantern.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jigsaw.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jukebox.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_button.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_door.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_fence.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_fence_gate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_leaves.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_log.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_planks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_pressure_plate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_sapling.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_sign.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_trapdoor.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_wall_sign.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\jungle_wood.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\kelp.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\kelp_plant.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\ladder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lantern.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lapis_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lapis_ore.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\large_fern.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lava.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lectern.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lever.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_blue_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_blue_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_blue_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_blue_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_blue_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_blue_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_blue_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_blue_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_blue_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_blue_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_blue_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_blue_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_gray_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_gray_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_gray_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_gray_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_gray_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_gray_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_gray_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_gray_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_gray_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_gray_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_gray_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_gray_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\light_weighted_pressure_plate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lilac.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lily_of_the_valley.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lily_pad.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lime_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lime_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lime_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lime_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lime_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lime_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lime_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lime_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lime_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lime_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lime_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\lime_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\loom.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\magenta_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\magenta_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\magenta_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\magenta_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\magenta_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\magenta_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\magenta_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\magenta_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\magenta_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\magenta_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\magenta_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\magenta_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\magma_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\melon.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\melon_stem.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\mossy_cobblestone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\mossy_cobblestone_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\mossy_cobblestone_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\mossy_cobblestone_wall.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\mossy_stone_brick_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\mossy_stone_brick_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\mossy_stone_brick_wall.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\mossy_stone_bricks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\moving_piston.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\mushroom_stem.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\mycelium.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\nether_brick_fence.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\nether_brick_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\nether_brick_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\nether_brick_wall.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\nether_bricks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\nether_portal.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\nether_quartz_ore.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\nether_wart.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\nether_wart_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\netherrack.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\note_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_button.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_door.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_fence.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_fence_gate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_leaves.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_log.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_planks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_pressure_plate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_sapling.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_sign.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_trapdoor.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_wall_sign.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oak_wood.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\observer.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\obsidian.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\orange_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\orange_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\orange_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\orange_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\orange_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\orange_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\orange_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\orange_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\orange_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\orange_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\orange_tulip.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\orange_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\orange_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\oxeye_daisy.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\packed_ice.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\peony.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\petrified_oak_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pink_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pink_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pink_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pink_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pink_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pink_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pink_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pink_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pink_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pink_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pink_tulip.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pink_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pink_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\piston.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\piston_head.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\player_head.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\player_wall_head.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\podzol.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\polished_andesite.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\polished_andesite_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\polished_andesite_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\polished_diorite.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\polished_diorite_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\polished_diorite_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\polished_granite.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\polished_granite_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\polished_granite_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\poppy.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potatoes.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_acacia_sapling.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_allium.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_azure_bluet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_bamboo.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_birch_sapling.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_blue_orchid.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_brown_mushroom.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_cactus.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_cornflower.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_dandelion.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_dark_oak_sapling.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_dead_bush.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_fern.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_jungle_sapling.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_lily_of_the_valley.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_oak_sapling.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_orange_tulip.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_oxeye_daisy.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_pink_tulip.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_poppy.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_red_mushroom.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_red_tulip.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_spruce_sapling.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_white_tulip.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\potted_wither_rose.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\powered_rail.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\prismarine.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\prismarine_brick_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\prismarine_brick_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\prismarine_bricks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\prismarine_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\prismarine_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\prismarine_wall.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pumpkin.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\pumpkin_stem.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purple_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purple_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purple_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purple_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purple_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purple_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purple_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purple_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purple_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purple_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purple_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purple_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purpur_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purpur_pillar.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purpur_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\purpur_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\quartz_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\quartz_pillar.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\quartz_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\quartz_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\rail.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_mushroom.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_mushroom_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_nether_brick_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_nether_brick_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_nether_brick_wall.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_nether_bricks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_sand.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_sandstone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_sandstone_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_sandstone_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_sandstone_wall.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_tulip.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\red_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\redstone_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\redstone_lamp.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\redstone_ore.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\redstone_torch.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\redstone_wall_torch.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\redstone_wire.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\repeater.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\repeating_command_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\rose_bush.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\sand.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\sandstone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\sandstone_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\sandstone_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\sandstone_wall.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\scaffolding.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\sea_lantern.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\sea_pickle.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\seagrass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\skeleton_skull.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\skeleton_wall_skull.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\slime_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\smithing_table.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\smoker.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\smooth_quartz.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\smooth_quartz_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\smooth_quartz_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\smooth_red_sandstone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\smooth_red_sandstone_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\smooth_red_sandstone_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\smooth_sandstone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\smooth_sandstone_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\smooth_sandstone_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\smooth_stone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\smooth_stone_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\snow.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\snow_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\soul_sand.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spawner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\sponge.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_button.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_door.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_fence.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_fence_gate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_leaves.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_log.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_planks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_pressure_plate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_sapling.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_sign.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_trapdoor.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_wall_sign.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\spruce_wood.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\sticky_piston.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stone.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stone_brick_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stone_brick_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stone_brick_wall.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stone_bricks.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stone_button.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stone_pressure_plate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stone_slab.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stone_stairs.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stonecutter.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stripped_acacia_log.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stripped_acacia_wood.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stripped_birch_log.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stripped_birch_wood.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stripped_dark_oak_log.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stripped_dark_oak_wood.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stripped_jungle_log.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stripped_jungle_wood.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stripped_oak_log.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stripped_oak_wood.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stripped_spruce_log.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\stripped_spruce_wood.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\structure_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\structure_void.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\sugar_cane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\sunflower.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\sweet_berry_bush.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\tall_grass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\tall_seagrass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\tnt.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\torch.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\trapped_chest.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\tripwire.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\tripwire_hook.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\tube_coral.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\tube_coral_block.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\tube_coral_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\tube_coral_wall_fan.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\turtle_egg.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\vine.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\void_air.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\wall_torch.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\water.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\wet_sponge.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\wheat.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\white_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\white_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\white_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\white_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\white_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\white_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\white_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\white_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\white_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\white_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\white_tulip.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\white_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\white_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\wither_rose.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\wither_skeleton_skull.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\wither_skeleton_wall_skull.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\yellow_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\yellow_bed.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\yellow_carpet.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\yellow_concrete.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\yellow_concrete_powder.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\yellow_glazed_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\yellow_shulker_box.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\yellow_stained_glass.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\yellow_stained_glass_pane.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\yellow_terracotta.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\yellow_wall_banner.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\yellow_wool.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\zombie_head.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\zombie_wall_head.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_button.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_door.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_fence.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="minecraft\blockstates\acacia_fence_gate.json">
+      <Filter>Resource Files\blockstates</Filter>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
