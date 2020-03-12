@@ -40,7 +40,7 @@ struct Block
 //struct Block
 //{
 //	BlockID data;
-//	uint8_t faces; //this is used for t rue false on which faces should be rendered going null/null/+y/-y/+x/-x/+z/-z
+//	uint8_t faces; //this is used for true false on which faces should be rendered going null/null/+y/-y/+x/-x/+z/-z
 //};
 struct Section
 {

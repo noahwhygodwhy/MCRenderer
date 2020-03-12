@@ -49,32 +49,160 @@ json Asset::fileToJson(string filepath)
 	return j;
 }
 
+void combineModels(Model& keeping, const Model& discarding)
+{
+	//so you'll notice that this doesn't take the name of the models
+	//into acount, and that is because at this point the names aren't used.
+	keeping.elements.insert(keeping.elements.end(), discarding.elements.begin(), discarding.elements.end());
+	if (discarding.cullForMe)
+	{
+		keeping.cullForMe = true;
+	}
+	if (discarding.AmbOcc)
+	{
+		keeping.AmbOcc = true;
+	}
+}
+//Model combineModels(const Model& keeping, const Model& discarding)
+//{
+//	//so you'll notice that this doesn't take the name of the models
+//	//into acount, and that is because at this point the names aren't used.
+//	Model m;
+//	m.elements.insert(m.elements.end(), keeping.elements.begin(), keeping.elements.end());
+//	m.elements.insert(m.elements.end(), discarding.elements.begin(), discarding.elements.end());
+//	m.model = keeping.model;
+//	if (keeping.cullForMe || discarding.cullForMe)
+//	{
+//		m.cullForMe = true;
+//	}
+//	if (keeping.AmbOcc || discarding.AmbOcc)
+//	{
+//		m.cullForMe = true;
+//	}
+//	return m;
+//}
 
 Model Asset::findModelFromAssets(string name, const unordered_map<string, string>& attributes)
 {
 
-	Model m;
-	name = name.substr(name.find(":") + 1);
-	BlockState bs = assets[name];
-
-	for (Conditional cond : bs.variants) //for each variant
+	if (name == "minecraft:oak_leaves")
 	{
-		for (Conditions conds : cond.when) //for each possible true condition
-		{
-			//if it passes (NOT EXACT MATCH, just passes)
-			//combine it with model
-			//then return model
 
-			if (attributes == conds.conditions)
+		Model m;
+		name = name.substr(name.find(":") + 1);
+		BlockState bs = assets[name];
+		//printf("------------------------\n findModelFromAssets of name :%s\nattributes:\n", name);
+		//for (pair<string, string> val : attributes)
+		//{
+		//	printf("%s=%s\n", val.first.c_str(), val.second.c_str());
+		//}
+		//god this naming scheme was a mistake
+		//printf("it has at least one variant: %s\n", bs.variants.empty() ? "false" : "true");
+		for (Conditional variant : bs.variants) //for each variant
+		{
+			//printf("testing for %s\n", variant.model.model.c_str());
+			//printf("it has ifs\n");
+			for (Conditions variantConditions : variant.when) //for each possible set of conditions
 			{
-				return cond.model;
+				if (variantConditions.conditions.empty()) //if it has no conditions, it's good (insta-match)
+				{
+					//printf("has no conditions\n");
+					if (m.model == "NULL")
+					{
+						//printf("first add\n");
+						m = variant.model;
+					}
+					else
+					{
+						//printf("not first add\n");
+						combineModels(m, variant.model);
+					}
+				}
+				else //it has at least one condition
+				{
+					//printf("---\nif list: \n");
+					//bool added = false;
+					for (pair<string, string> condition : variantConditions.conditions) //for each condition
+					{
+						//printf("%s=%s\n", condition.first.c_str(), condition.second.c_str());
+						if (attributes.count(condition.first) > 0)//if it has the attribute
+						{
+							//printf("it has the attribute\n");
+							if (attributes.at(condition.first) == condition.second) //if the attribute matches
+							{
+								//printf("the attribute values match\n");
+								if (m.model == "NULL")
+								{
+									//printf("first add\n");
+									m = variant.model;
+									//printf("new name: %s\n", m.model.c_str());
+								}
+								else
+								{
+									//printf("combining models\n");
+									combineModels(m, variant.model);
+								}
+							}
+						}
+					}
+				}
 			}
+
 		}
+		//if (m.model == "NULL")
+		//{
+		//	printf("could not find model for %s\n", name.c_str());
+		//}
+		//printf("size of elements: %i\n", m.elements.size());
+		return m;
 	}
-	//todo: printf("couldn't find model for %s\n", name.c_str());
-	Model m;
-	return m;
-	//TODO
+	else
+	{
+
+
+		Model m;
+		name = name.substr(name.find(":") + 1);
+		BlockState bs = assets[name];
+		for (Conditional variant : bs.variants) //for each variant
+		{
+			for (Conditions variantConditions : variant.when) //for each possible set of conditions
+			{
+				if (variantConditions.conditions.empty()) //if it has no conditions, it's good (insta-match)
+				{
+					if (m.model == "NULL")
+					{
+						m = variant.model;
+					}
+					else
+					{
+						combineModels(m, variant.model);
+					}
+				}
+				else //it has at least one condition
+				{
+					for (pair<string, string> condition : variantConditions.conditions) //for each condition
+					{
+						if (attributes.count(condition.first) > 0)//if it has the attribute
+						{
+							if (attributes.at(condition.first) == condition.second) //if the attribute matches
+							{
+								if (m.model == "NULL")
+								{
+									m = variant.model;
+								}
+								else
+								{
+									combineModels(m, variant.model);
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+		return m;
+	}
 }
 //the parses the information from the <faces> 
 
@@ -149,7 +277,7 @@ Face Asset::parseFaceJson(const json& faces, const string &faceStr, const unorde
 
 //parses the model information from the model.json
 //this includes all the parents' information
-Model Asset::parseModelJson(Model m, string name, int xRot, int yRot, int uvLock)
+Model Asset::parseModelJson(string name, int xRot, int yRot, int uvLock)
 { 
 
 	unordered_map<string, string> textures;//a map of texture names for when they are references (#name)
@@ -160,12 +288,14 @@ Model Asset::parseModelJson(Model m, string name, int xRot, int yRot, int uvLock
 	bool hasParent = true;
 	json modelJson;
 	bool elementRead = false;//only the bottom most elements get read, parents get ignored
-
+	Model m;
+	m.model = name;
 	do
 	{
 		modelJson = fileToJson(MODEL_DIR_PATH + parent + ".json");
 		if (parent == "block/cube")
 		{
+			//todo:::
 			m.cullForMe = true;
 		}
 		if (modelJson.contains("ambientocclusion"))
@@ -230,23 +360,6 @@ Model Asset::parseModelJson(Model m, string name, int xRot, int yRot, int uvLock
 	return m;
 }
 
-void combineModels(Model& keeping, const Model& discarding)
-{
-	//so you'll notice that this doesn't take the name of the models
-	//into acount, and that is because at this point the names aren't used.
-	for (Element e : discarding.elements)
-	{
-		keeping.elements.push_back(e);
-	}
-	if (discarding.cullForMe)
-	{
-		keeping.cullForMe = true;
-	}
-	if (discarding.AmbOcc)
-	{
-		keeping.cullForMe = true;
-	}
-}
 
 //parses the model's information from the blockstate.json
 Model Asset::parseModel(const json& j)
@@ -255,12 +368,14 @@ Model Asset::parseModel(const json& j)
 
 	if (j.is_array())
 	{
-		printf("this has an array of models:\n%s\n", j.dump().c_str());
-		for (auto mi : j.items())
-		{
-			Model toAdd = parseModel(mi.value());
-			combineModels(toReturn, toAdd);
-		}
+		//printf("this has an array of models:\n%s\n", j.dump().c_str());
+		
+		toReturn = parseModel(j.front());
+		//for (auto mi : j.items())
+		//{
+		//	Model toAdd = parseModel(mi.value());
+		//	combineModels(toReturn, toAdd);
+		//}
 	}
 	else
 	{
@@ -281,11 +396,11 @@ Model Asset::parseModel(const json& j)
 		{
 			uvLock = j.find("uvlock").value();
 		}
-		Model m;
-		m.model = j.find("model").value();
 
-		m = parseModelJson(m, m.model, xRot, yRot, uvLock);
+		string name = j.find("model").value();
+		toReturn = parseModelJson(name, xRot, yRot, uvLock);
 	}
+
 	return toReturn;
 }
 

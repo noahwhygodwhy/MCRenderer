@@ -341,27 +341,27 @@ uint8_t RegionLoader::getSides(World* world, const vec3& orig, const Model& orig
 
 	uint8_t faces = 0;
 	//todo: need to also take into acount origBlock's elements faces cullface i think
-	if (posYB.model != "NULL" && posYB.cullForMe == true)
+	if (posYB.model == "NULL" || !posYB.cullForMe)
 	{
 		faces |= 0b00100000;
 	}
-	if (negYB.model != "NULL" && negYB.cullForMe == true)
+	if (negYB.model == "NULL" || !negYB.cullForMe)
 	{
 		faces |= 0b00010000;
 	}
-	if (posXB.model != "NULL" && posXB.cullForMe == true)
+	if (posXB.model == "NULL" || !posXB.cullForMe)
 	{
 		faces |= 0b00001000;
 	}
-	if (negXB.model != "NULL" && negXB.cullForMe == true)
+	if (negXB.model == "NULL" || !negXB.cullForMe)
 	{
 		faces |= 0b00000100;
 	}
-	if (posZB.model != "NULL" && posZB.cullForMe == true)
+	if (posZB.model == "NULL" || !posZB.cullForMe)
 	{
 		faces |= 0b00000010;
 	}
-	if (negZB.model != "NULL" && negZB.cullForMe == true)
+	if (negZB.model == "NULL" || !negZB.cullForMe)
 	{
 		faces |= 0b0000001;
 	}
@@ -485,6 +485,7 @@ vector<culledModel> RegionLoader::cullWorld(World* world)
 								if (sides > 0)
 								{
 									culledModel toAdd;
+									//todo: tinting here
 									//for (Element e : origB.elements)
 									//{
 

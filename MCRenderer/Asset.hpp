@@ -90,7 +90,7 @@ public:
 private:
 	json fileToJson(string filepath);
 	Face parseFaceJson(const json &faces,const string& faceStr, const unordered_map<string, string>& textures);
-	Model parseModelJson(Model m, string name, int xRot, int yRot, int uvLock);
+	Model parseModelJson(string name, int xRot, int yRot, int uvLock);
 	Model parseModel(const json& j);
 	BlockState parseBlockstateJson(string filepath);
 	unordered_map < string, string > parseAttributes(string src);

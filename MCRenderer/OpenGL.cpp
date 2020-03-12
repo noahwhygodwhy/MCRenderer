@@ -126,9 +126,8 @@ vector<VertToBeRendered> OpenGL::convertWorldToVerts(const vector<culledModel>& 
 
 	vector<VertToBeRendered> verts;
 	for (culledModel cm: culledWorld)//for each block that might exist
-	{
-		vec2 rotation = vec2(cm.m.xRot, cm.m.yRot);
-		mat4 rm = mat4(1.0f);//rm stands for rotation matrix
+	{	//todo: when your'e doing rotation, it's by each element now,not by model
+		//vec2 rotation = vec2(cm.m.xRot, cm.m.yRot);
 		//if (cm.m.xRot > 0 || cm.m.yRot > 0)
 		//{
 		//	printf("rotating %s by %i in x and %i in y\n", cm.m.model.c_str(), cm.m.xRot, cm.m.yRot);
@@ -139,6 +138,11 @@ vector<VertToBeRendered> OpenGL::convertWorldToVerts(const vector<culledModel>& 
 
 		for (Element e : cm.m.elements)//for each element of that block that might exist
 		{
+			mat4 rm = mat4(1.0f);//rm stands for rotation matrix
+
+			rm = rotate(rm, (float)radians((float) e.xRot), vec3(1, 0, 0));
+			rm = rotate(rm, (float)radians((float) e.yRot), vec3(0, 1, 0));
+			
 			ppp = (rm * vec4(adjust(e.to.x, e.to.y, e.to.z), 0.0f)) + vec4(cm.coords, 1.0f);
 			ppn = (rm * vec4(adjust(e.to.x, e.to.y, e.from.z), 0.0f)) + vec4(cm.coords, 1.0f);
 			pnp = (rm * vec4(adjust(e.to.x, e.from.y, e.to.z), 0.0f)) + vec4(cm.coords, 1.0f);
@@ -153,8 +157,10 @@ vector<VertToBeRendered> OpenGL::convertWorldToVerts(const vector<culledModel>& 
 			//so each of these are the rotated coords of the corners of the cuboid
 			//todo: now you can decide whether each face/triangle pair should be there
 				
-			if (!(cm.faces & 0b00100000))//+y
+			if (cm.faces & 0b00100000)//+y
 			{
+				//vec2(1, 1) = e.up
+
 				float tex = normalizeTexture(e.up.texture);
 				verts.push_back(VertToBeRendered( ppp, vec2(1, 1), tex ));
 				verts.push_back(VertToBeRendered( ppn, vec2(1, 0), tex ));
@@ -163,7 +169,7 @@ vector<VertToBeRendered> OpenGL::convertWorldToVerts(const vector<culledModel>& 
 				verts.push_back(VertToBeRendered( npn, vec2(0, 0), tex ));
 				verts.push_back(VertToBeRendered( npp, vec2(0, 1), tex ));
 			}
-			if (!(cm.faces & 0b00010000))//-y
+			if (cm.faces & 0b00010000)//-y
 			{
 				float tex = normalizeTexture(e.down.texture);
 				verts.push_back(VertToBeRendered( pnn, vec2(1, 1), tex ));
@@ -173,7 +179,7 @@ vector<VertToBeRendered> OpenGL::convertWorldToVerts(const vector<culledModel>& 
 				verts.push_back(VertToBeRendered(pnp, vec2(1, 0), tex));
 				verts.push_back(VertToBeRendered( nnp, vec2(0, 0), tex ));
 			}
-			if (!(cm.faces & 0b00001000))//+x
+			if (cm.faces & 0b00001000)//+x
 			{
 				float tex = normalizeTexture(e.east.texture);
 				verts.push_back(VertToBeRendered( ppp, vec2(0, 0), tex ));
@@ -183,7 +189,7 @@ vector<VertToBeRendered> OpenGL::convertWorldToVerts(const vector<culledModel>& 
 				verts.push_back(VertToBeRendered( pnp, vec2(0, 1), tex ));
 				verts.push_back(VertToBeRendered( pnn, vec2(1, 1), tex ));
 			}
-			if (!(cm.faces & 0b00000100))//-x
+			if (cm.faces & 0b00000100)//-x
 			{
 				float tex = normalizeTexture(e.west.texture);
 				verts.push_back(VertToBeRendered( npn, vec2(0, 0), tex ));
@@ -193,7 +199,7 @@ vector<VertToBeRendered> OpenGL::convertWorldToVerts(const vector<culledModel>& 
 				verts.push_back(VertToBeRendered( nnn, vec2(0, 1), tex ));
 				verts.push_back(VertToBeRendered( nnp, vec2(1, 1), tex ));
 			}
-			if (!(cm.faces & 0b00000010))//+z
+			if (cm.faces & 0b00000010)//+z
 			{
 				float tex = normalizeTexture(e.south.texture);
 				verts.push_back(VertToBeRendered( npp, vec2(0, 0), tex ));
@@ -203,7 +209,7 @@ vector<VertToBeRendered> OpenGL::convertWorldToVerts(const vector<culledModel>& 
 				verts.push_back(VertToBeRendered( nnp, vec2(0, 1), tex ));
 				verts.push_back(VertToBeRendered( pnp, vec2(1, 1), tex ));
 			}
-			if (!(cm.faces & 0b00000001))//-z
+			if (cm.faces & 0b00000001)//-z
 			{
 				float tex = normalizeTexture(e.north.texture);
 				verts.push_back(VertToBeRendered( ppn, vec2(0, 0), tex ));
@@ -259,7 +265,7 @@ unordered_map<string, int> OpenGL::loadTextures(string path)
 	}
 
 	printf("all images in sixteenImages\n");
-	int32_t mipLevelCount = 1;
+	int32_t mipLevelCount = 1;//maybe eventually fix?
 	int32_t width = 16;
 	int32_t height = 16;
 	layerCount = sixteenImages.size();
