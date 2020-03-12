@@ -52,20 +52,22 @@ json Asset::fileToJson(string filepath)
 
 Model Asset::findModelFromAssets(string name, const unordered_map<string, string>& attributes)
 {
+
+	Model m;
 	name = name.substr(name.find(":") + 1);
-	//BlockState bs = assets[name];
-
-
-	//old version
-	
 	BlockState bs = assets[name];
-	for (Conditional cond : bs.variants)
+
+	for (Conditional cond : bs.variants) //for each variant
 	{
-		for (Conditions conds : cond.when)
+		for (Conditions conds : cond.when) //for each possible true condition
 		{
+			//if it passes (NOT EXACT MATCH, just passes)
+			//combine it with model
+			//then return model
+
 			if (attributes == conds.conditions)
 			{
-				return cond.models.at(0);
+				return cond.model;
 			}
 		}
 	}
@@ -147,7 +149,7 @@ Face Asset::parseFaceJson(const json& faces, const string &faceStr, const unorde
 
 //parses the model information from the model.json
 //this includes all the parents' information
-Model Asset::parseModelJson(Model m, string name)
+Model Asset::parseModelJson(Model m, string name, int xRot, int yRot, int uvLock)
 { 
 
 	unordered_map<string, string> textures;//a map of texture names for when they are references (#name)
@@ -192,7 +194,9 @@ Model Asset::parseModelJson(Model m, string name)
 			for (auto& [key, value] : modelJson["elements"].items())//for each element
 			{
 				Element e;
-
+				e.xRot = xRot;
+				e.yRot = yRot;
+				e.uvLock = uvLock;
 
 				json from = value["from"];
 				e.from = vec3(stoi(from[0].dump()), stoi(from[1].dump()), stoi(from[2].dump()));
@@ -226,46 +230,61 @@ Model Asset::parseModelJson(Model m, string name)
 	return m;
 }
 
-//parses the model's information from the blockstate.json
-vector<Model> Asset::parseModel(const json& j)
+void combineModels(Model& keeping, const Model& discarding)
 {
-	vector<Model> toReturn;
+	//so you'll notice that this doesn't take the name of the models
+	//into acount, and that is because at this point the names aren't used.
+	for (Element e : discarding.elements)
+	{
+		keeping.elements.push_back(e);
+	}
+	if (discarding.cullForMe)
+	{
+		keeping.cullForMe = true;
+	}
+	if (discarding.AmbOcc)
+	{
+		keeping.cullForMe = true;
+	}
+}
+
+//parses the model's information from the blockstate.json
+Model Asset::parseModel(const json& j)
+{
+	Model toReturn;
 
 	if (j.is_array())
 	{
+		printf("this has an array of models:\n%s\n", j.dump().c_str());
 		for (auto mi : j.items())
 		{
-			vector<Model> toAdd = parseModel(mi.value());
-			toReturn.insert(toReturn.end(), toAdd.begin(), toAdd.end());
+			Model toAdd = parseModel(mi.value());
+			combineModels(toReturn, toAdd);
 		}
 	}
 	else
 	{
-		Model m;
-		m.model = j.find("model").value();
-
-		m = parseModelJson(m, m.model);
-
+		int xRot = 0;
+		int yRot = 0;
+		int uvLock = 0;
 		if (j.contains("x"))
 		{
-			m.xRot = j.find("x").value();
+			xRot = j.find("x").value();
 		}
 
 		if (j.contains("y"))
 		{
-			m.yRot = j.find("y").value();
+			yRot = j.find("y").value();
 		}
 
 		if (j.contains("uvlock"))
 		{
-			m.uvLock = j.find("uvlock").value();
+			uvLock = j.find("uvlock").value();
 		}
+		Model m;
+		m.model = j.find("model").value();
 
-		//if (j.contains("weight"))
-		//{
-		//	m.weight = j.find("weight").value();
-		//}
-		toReturn.push_back(m);
+		m = parseModelJson(m, m.model, xRot, yRot, uvLock);
 	}
 	return toReturn;
 }
@@ -287,7 +306,7 @@ BlockState Asset::parseBlockstateJson(string filepath)
 		{
 			Conditions attributes;
 			attributes.conditions = parseAttributes(var.key());
-			onlyCondition.models = parseModel(var.value());
+			onlyCondition.model = parseModel(var.value());
 			onlyCondition.when.push_back(attributes);
 
 		}
@@ -349,7 +368,7 @@ BlockState Asset::parseBlockstateJson(string filepath)
 					}
 				}
 			}
-			toAddCondition.models = parseModel(apply);
+			toAddCondition.model = parseModel(apply);
 			toAdd.variants.push_back(toAddCondition);
 		}
 	}

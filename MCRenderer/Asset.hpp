@@ -22,7 +22,7 @@ struct Face
 	uint8_t cullFace = 0b00000000;
 	vec4 uv = vec4(0, 0, 16, 16);
 	vec3 tint = vec3(0, 0, 0);
-	int rotation = 0;
+	int rotation = 0;//TODO handle texture rotation, not just block rotation
 	int tintIndex = -1;
 	//todo tint index
 };
@@ -54,9 +54,6 @@ struct Model
 	bool AmbOcc = true;
 	bool cullForMe = false;
 	//todo: particle
-	int xRot = 0;
-	int yRot = 0;
-	bool uvLock = false;
 };
 
 enum BlockStateType
@@ -72,12 +69,12 @@ struct Conditions
 struct Conditional
 {
 	vector<Conditions> when;//OR'd
-	vector<Model> models;//"apply"
+	Model model;//"apply"
 };
 struct BlockState
 {
 	BlockStateType type;
-	vector< Conditional > variants;
+	vector<Conditional> variants;
 };
 
 class Asset
@@ -93,8 +90,8 @@ public:
 private:
 	json fileToJson(string filepath);
 	Face parseFaceJson(const json &faces,const string& faceStr, const unordered_map<string, string>& textures);
-	Model parseModelJson(Model m, string name);
-	vector<Model> parseModel(const json& j);
+	Model parseModelJson(Model m, string name, int xRot, int yRot, int uvLock);
+	Model parseModel(const json& j);
 	BlockState parseBlockstateJson(string filepath);
 	unordered_map < string, string > parseAttributes(string src);
 	//unsigned int importTextures(const string& path);
