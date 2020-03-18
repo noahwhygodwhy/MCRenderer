@@ -20,7 +20,7 @@ struct Face
 {
 	int texture = 0;
 	uint8_t cullFace = 0b00000000;
-	vec4 uv = vec4(0, 0, 16, 16);
+	ivec4 uv = ivec4(0, 0, 16, 16);
 	vec3 tint = vec3(0, 0, 0);
 	int rotation = 0;//TODO handle texture rotation, not just block rotation
 	int tintIndex = -1;

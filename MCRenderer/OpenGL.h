@@ -52,6 +52,8 @@ public:
 	void run(const vector<VertToBeRendered>& faces);
 	unordered_map<string, int> loadTextures(string path);
 	vector<VertToBeRendered> convertWorldToVerts(const vector<culledModel>& culledWorld);
+	void addFace(vector<VertToBeRendered>& verts, const vec3& a, const vec3& b, const vec3& c, const vec3& d, vec4 uv, int texRotation, int uvRotation, bool uvLock, int texture);
+
 private:
 	float normalizeTexture(const int& texID);
 };

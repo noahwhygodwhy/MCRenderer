@@ -14,8 +14,10 @@
 #include <unordered_map>
 #include "Asset.hpp"
 #include <glm/glm.hpp>
+#include <filesystem>
 
 using namespace std;
+using namespace std::filesystem;
 using namespace glm;
 
 typedef struct
@@ -36,13 +38,13 @@ class RegionLoader
 public:
 	RegionLoader();
 	~RegionLoader();
-	Region* loadRegion(string filename);
+	Region* loadRegion(directory_entry filename);
 	Chunk* createChunk(vector<unsigned char>* decompressedData);
 	World* loadWorld(string saveFolder, Asset * ass);
 	//void cullRegion(Region reg);
 	vector<culledModel> cullWorld(World* world);
 	Model getBlock(const vec3& coord, World *world);
-	Model getBlock(const int64_t& x, const int64_t & y, const int64_t& z, World* world);
+	Model getBlock(const int64_t& x, const int64_t& y, const int64_t& z, World* world);
 	uint8_t getSides(World* world, const vec3& orig, const Model& origBlock);
 
 

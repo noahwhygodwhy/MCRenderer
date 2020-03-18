@@ -85,89 +85,133 @@ void combineModels(Model& keeping, const Model& discarding)
 Model Asset::findModelFromAssets(string name, const unordered_map<string, string>& attributes)
 {
 
-	if (name == "minecraft:oak_leaves")
+	//if (name != "minecraft:grass_block" && name != "minecraft:bedrock" && name != "minecraft:dirt" && name != "minecraft:air")
+	if (name == "minecraft:redstone_wall_torch")
 	{
 
 		Model m;
 		name = name.substr(name.find(":") + 1);
 		BlockState bs = assets[name];
-		//printf("------------------------\n findModelFromAssets of name :%s\nattributes:\n", name);
-		//for (pair<string, string> val : attributes)
-		//{
-		//	printf("%s=%s\n", val.first.c_str(), val.second.c_str());
-		//}
+		printf("------------------------\nfindModelFromAssets of name: %s\nattributes: \n", name.c_str());
+		for (pair<string, string> val : attributes)
+		{
+			printf("%s=%s\n", val.first.c_str(), val.second.c_str());
+		}
+		printf("\n");
 		//god this naming scheme was a mistake
 		//printf("it has at least one variant: %s\n", bs.variants.empty() ? "false" : "true");
 		for (Conditional variant : bs.variants) //for each variant
 		{
-			//printf("testing for %s\n", variant.model.model.c_str());
-			//printf("it has ifs\n");
+			printf("testing for %s\n", variant.model.model.c_str());
+			if (variant.when.size() == 0)
+			{
+				if (m.model == "NULL")
+				{
+					printf("first add\n");
+					m = variant.model;
+				}
+				else
+				{
+					printf("not first add\n");
+					combineModels(m, variant.model);
+				}
+			}
 			for (Conditions variantConditions : variant.when) //for each possible set of conditions
 			{
-				if (variantConditions.conditions.empty()) //if it has no conditions, it's good (insta-match)
+				
+				printf("\n---if list: \n");
+				//bool added = false;
+				bool match = true;
+				
+
+
+				for (pair<string, string> condition : variantConditions.conditions) //for each condition
 				{
-					//printf("has no conditions\n");
-					if (m.model == "NULL")
+					printf("%s=%s\n", condition.first.c_str(), condition.second.c_str());
+					if (attributes.count(condition.first) > 0)//if it has the attribute
 					{
-						//printf("first add\n");
-						m = variant.model;
+						printf("it has the attribute\n");
+						if (attributes.at(condition.first) == condition.second) //if the attribute matches
+						{
+							//printf("the attribute values match\n");
+							//gucci
+						}
+						else
+						{
+							match = false;
+						}
+
 					}
 					else
 					{
-						//printf("not first add\n");
-						combineModels(m, variant.model);
+						match = false;
 					}
 				}
-				else //it has at least one condition
+				if (match)
 				{
-					//printf("---\nif list: \n");
-					//bool added = false;
-					for (pair<string, string> condition : variantConditions.conditions) //for each condition
+					printf("matches\n");
+					if (m.model == "NULL")
 					{
-						//printf("%s=%s\n", condition.first.c_str(), condition.second.c_str());
-						if (attributes.count(condition.first) > 0)//if it has the attribute
-						{
-							//printf("it has the attribute\n");
-							if (attributes.at(condition.first) == condition.second) //if the attribute matches
-							{
-								//printf("the attribute values match\n");
-								if (m.model == "NULL")
-								{
-									//printf("first add\n");
-									m = variant.model;
-									//printf("new name: %s\n", m.model.c_str());
-								}
-								else
-								{
-									//printf("combining models\n");
-									combineModels(m, variant.model);
-								}
-							}
-						}
+						printf("first add pt 2\n");
+						m = variant.model;
+						//printf("x %i, y %i\n", variant.model.elements[0].xRot, variant.model.elements[0].yRot);
+					}
+					else
+					{
+						printf("not first add pt2\n");
+						combineModels(m, variant.model);
 					}
 				}
 			}
 
 		}
-		//if (m.model == "NULL")
-		//{
-		//	printf("could not find model for %s\n", name.c_str());
-		//}
-		//printf("size of elements: %i\n", m.elements.size());
+		Element e = m.elements[0];
+		//printf("size: %i\n", m.elements.size());
+		//printf("x %i, y %i\n", e.xRot, e.yRot);
 		return m;
 	}
 	else
 	{
-
-
 		Model m;
 		name = name.substr(name.find(":") + 1);
 		BlockState bs = assets[name];
 		for (Conditional variant : bs.variants) //for each variant
 		{
+			if (variant.when.size() == 0)
+			{
+				if (m.model == "NULL")
+				{
+					m = variant.model;
+				}
+				else
+				{
+					combineModels(m, variant.model);
+				}
+			}
 			for (Conditions variantConditions : variant.when) //for each possible set of conditions
 			{
-				if (variantConditions.conditions.empty()) //if it has no conditions, it's good (insta-match)
+
+				bool match = true;
+				for (pair<string, string> condition : variantConditions.conditions) //for each condition
+				{
+					if (attributes.count(condition.first) > 0)//if it has the attribute
+					{
+						if (attributes.at(condition.first) == condition.second) //if the attribute matches
+						{
+							//gucci
+						}
+						else
+						{
+							match = false;
+						}
+
+					}
+					else
+					{
+						match = false;
+					}
+				}
+				if (match)
 				{
 					if (m.model == "NULL")
 					{
@@ -178,29 +222,10 @@ Model Asset::findModelFromAssets(string name, const unordered_map<string, string
 						combineModels(m, variant.model);
 					}
 				}
-				else //it has at least one condition
-				{
-					for (pair<string, string> condition : variantConditions.conditions) //for each condition
-					{
-						if (attributes.count(condition.first) > 0)//if it has the attribute
-						{
-							if (attributes.at(condition.first) == condition.second) //if the attribute matches
-							{
-								if (m.model == "NULL")
-								{
-									m = variant.model;
-								}
-								else
-								{
-									combineModels(m, variant.model);
-								}
-							}
-						}
-					}
-				}
 			}
 
 		}
+		Element e = m.elements[0];
 		return m;
 	}
 }
@@ -243,6 +268,7 @@ Face Asset::parseFaceJson(const json& faces, const string &faceStr, const unorde
 	Face toReturn;
 	if (!faces.contains(faceStr))
 	{
+		toReturn.cullFace = 0b11000000;
 		return toReturn;
 	}
 	if (faces[faceStr].contains("uv"))
@@ -262,6 +288,11 @@ Face Asset::parseFaceJson(const json& faces, const string &faceStr, const unorde
 
 	toReturn.texture =  textureMap[cutName];
 	//printf("texture %s = %i\n", cutName.c_str(), toReturn.texture);
+
+	if (faces[faceStr].contains("rotation"))
+	{
+		toReturn.rotation = faces[faceStr]["rotation"];
+	}
 
 	if (faces[faceStr].contains("cullface"))
 	{
@@ -295,7 +326,6 @@ Model Asset::parseModelJson(string name, int xRot, int yRot, int uvLock)
 		modelJson = fileToJson(MODEL_DIR_PATH + parent + ".json");
 		if (parent == "block/cube")
 		{
-			//todo:::
 			m.cullForMe = true;
 		}
 		if (modelJson.contains("ambientocclusion"))
@@ -368,14 +398,7 @@ Model Asset::parseModel(const json& j)
 
 	if (j.is_array())
 	{
-		//printf("this has an array of models:\n%s\n", j.dump().c_str());
-		
 		toReturn = parseModel(j.front());
-		//for (auto mi : j.items())
-		//{
-		//	Model toAdd = parseModel(mi.value());
-		//	combineModels(toReturn, toAdd);
-		//}
 	}
 	else
 	{
@@ -416,16 +439,19 @@ BlockState Asset::parseBlockstateJson(string filepath)
 	if (blockstateJson.contains("variants"))
 	{
 		toAdd.type = VARIANT;
-		Conditional onlyCondition;
 		for (auto var : blockstateJson["variants"].items())//for each variant of blockstate
 		{
+			Conditional onlyCondition;
 			Conditions attributes;
 			attributes.conditions = parseAttributes(var.key());
 			onlyCondition.model = parseModel(var.value());
 			onlyCondition.when.push_back(attributes);
-
+			//if (var.key() == "facing=south,half=bottom,shape=straight")
+			//{
+			//	printf("x %i, y %i\n", onlyCondition.model.elements[0].xRot, onlyCondition.model.elements[0].yRot);
+			//}
+			toAdd.variants.push_back(onlyCondition);
 		}
-		toAdd.variants.push_back(onlyCondition);
 	}
 	else if (blockstateJson.contains("multipart"))
 	{

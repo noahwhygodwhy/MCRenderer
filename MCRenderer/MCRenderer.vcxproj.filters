@@ -4114,5 +4114,11 @@
       <Filter>Resource Files\blockstates</Filter>
     </None>
     <None Include="packages.config" />
+    <None Include="fragShader.glsl">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="vertShader.glsl">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

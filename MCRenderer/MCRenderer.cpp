@@ -5,19 +5,20 @@
 
 
 using namespace std;
-
 using namespace std::filesystem;
 
 
 int main(void)
 {
+
 	OpenGL ogl(1600, 900);
 	ogl.initializeOpenGL();
 	unordered_map<string, int> textureMap = ogl.loadTextures(TEXTURE_DIR_PATH);
 	Asset *ass = new Asset(textureMap);
 
 	RegionLoader rl;
-	World* world = rl.loadWorld("C:\\Users\\noahm\\AppData\\Roaming\\.minecraft\\saves\\New World 2\\region\\r.0.0.mca", ass);
+	World* world = rl.loadWorld("C:\\Users\\noahm\\AppData\\Roaming\\.minecraft\\saves\\Flat Lands\\region\\", ass);
+	//World* world = rl.loadWorld("C:\\Users\\noahm\\OneDrive\\Desktop\\Texture Test World\\region\\", ass);
 
 	vector<culledModel> culledWorld = rl.cullWorld(world);
 

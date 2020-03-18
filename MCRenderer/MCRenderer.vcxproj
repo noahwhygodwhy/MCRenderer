@@ -793,6 +793,7 @@
     <Image Include="minecraft\textures\block\yellow_wool.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="fragShader.glsl" />
     <None Include="minecraft\blockstates\acacia_button.json" />
     <None Include="minecraft\blockstates\acacia_door.json" />
     <None Include="minecraft\blockstates\acacia_fence.json" />
@@ -1508,6 +1509,7 @@
     <None Include="minecraft\textures\block\water_flow.png.mcmeta" />
     <None Include="minecraft\textures\block\water_still.png.mcmeta" />
     <None Include="packages.config" />
+    <None Include="vertShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

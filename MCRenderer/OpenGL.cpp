@@ -91,14 +91,13 @@ OpenGL::OpenGL(int x, int y)
 	VAO = 0;
 	screenX = x;
 	screenY = y;
-	cam = Camera(vec3(16, 75, 16), vec3(0, 1, 0), 0, 0, 10, 1, 1);
+	cam = Camera(vec3(0, 5, 0), vec3(0, 1, 0), 0, 0, 10, 1, 1);
 	window = glfwCreateWindow(x, y, "Title Goes here", NULL, NULL);
 }
 
 OpenGL::~OpenGL()
 {
 }
-
 
 vec3 adjust(const float& x, const float& y, const float& z)
 {
@@ -109,10 +108,65 @@ float OpenGL::normalizeTexture(const int& texID)
 	return (float) std::max(0, std::min(layerCount - 1, (int)floor(texID + 0.5f)));
 }
 
+vec4 rotateAroundCenter(const mat4& rm, const vec4& b)
+{
+	return vec4(vec3(0.5f), 0.0f) + (rm * (b - vec4(vec3(0.5f), 0.0f)));
+}
+
+//vec4 rotateUV(int degrees, const vec4& b)
+//{
+//	vec4 f = b;
+//	for (int i = 0; i < degrees / 90; i++)
+//	{
+//		f = vec4(f.z, f.y, f.x, f.w);
+//	}
+//	return f;
+//}
+
+vec2 rot90(vec2 v)
+{
+	return vec2( v.y, 1.0f-v.x);
+}
+
+void OpenGL::addFace(vector<VertToBeRendered>& verts, const vec3& a, const vec3& b, const vec3& c, const vec3& d, vec4 uv, int texRotation, int uvRotation, bool uvLock, int texture)
+{
+	vec2 uv00 = vec2(uv.x, uv.y) / 16.0f;
+	vec2 uv01 = vec2(uv.x, uv.w) / 16.0f;
+	vec2 uv11 = vec2(uv.z, uv.w) / 16.0f;
+	vec2 uv10 = vec2(uv.z, uv.y) / 16.0f;
+		
+	if (uvLock)
+	{
+		texRotation -= uvRotation;
+	}
+
+	texRotation = ((texRotation % 360) + 360) % 360;//confines to 0 to 360
+	
+	for (int i = 0; i < texRotation; i += 90)
+	{
+		uv00 = rot90(uv00);
+		uv01 = rot90(uv01);
+		uv11 = rot90(uv11);
+		uv10 = rot90(uv10);
+	}
+	
+
+	VertToBeRendered v00(a, uv00, texture);
+	VertToBeRendered v01(b, uv01, texture);
+	VertToBeRendered v11(c, uv11, texture);
+	VertToBeRendered v10(d, uv10, texture);
+
+	verts.push_back(v00);
+	verts.push_back(v11);
+	verts.push_back(v10);
+
+	verts.push_back(v00);
+	verts.push_back(v01);
+	verts.push_back(v11);
+}
 
 vector<VertToBeRendered> OpenGL::convertWorldToVerts(const vector<culledModel>& culledWorld)
 {
-
 	printf("converting to verts\n");
 
 	vec3 ppp;
@@ -126,98 +180,45 @@ vector<VertToBeRendered> OpenGL::convertWorldToVerts(const vector<culledModel>& 
 
 	vector<VertToBeRendered> verts;
 	for (culledModel cm: culledWorld)//for each block that might exist
-	{	//todo: when your'e doing rotation, it's by each element now,not by model
-		//vec2 rotation = vec2(cm.m.xRot, cm.m.yRot);
-		//if (cm.m.xRot > 0 || cm.m.yRot > 0)
-		//{
-		//	printf("rotating %s by %i in x and %i in y\n", cm.m.model.c_str(), cm.m.xRot, cm.m.yRot);
-		//}
-//TODO: block rotations F in chat
-		//rm = rotate(rm, (float)radians((float)cm.m.xRot), vec3(1, 0, 0));
-		//rm = rotate(rm, (float)radians((float)cm.m.yRot), vec3(0, 1, 0));
-
+	{	
 		for (Element e : cm.m.elements)//for each element of that block that might exist
 		{
 			mat4 rm = mat4(1.0f);//rm stands for rotation matrix
-
-			rm = rotate(rm, (float)radians((float) e.xRot), vec3(1, 0, 0));
-			rm = rotate(rm, (float)radians((float) e.yRot), vec3(0, 1, 0));
+			rm = rotate(rm, (float)radians((float)e.yRot), vec3(0, -1, 0));
+			rm = rotate(rm, (float)radians((float)e.xRot), vec3(-1, 0, 0));
 			
-			ppp = (rm * vec4(adjust(e.to.x, e.to.y, e.to.z), 0.0f)) + vec4(cm.coords, 1.0f);
-			ppn = (rm * vec4(adjust(e.to.x, e.to.y, e.from.z), 0.0f)) + vec4(cm.coords, 1.0f);
-			pnp = (rm * vec4(adjust(e.to.x, e.from.y, e.to.z), 0.0f)) + vec4(cm.coords, 1.0f);
-			pnn = (rm * vec4(adjust(e.to.x, e.from.y, e.from.z), 0.0f)) + vec4(cm.coords, 1.0f);
-			npp = (rm * vec4(adjust(e.from.x, e.to.y, e.to.z), 0.0f)) + vec4(cm.coords, 1.0f);
-			npn = (rm * vec4(adjust(e.from.x, e.to.y, e.from.z), 0.0f)) + vec4(cm.coords, 1.0f);
-			nnp = (rm * vec4(adjust(e.from.x, e.from.y, e.to.z), 0.0f)) + vec4(cm.coords, 1.0f);
-			nnn = (rm * vec4(adjust(e.from.x, e.from.y, e.from.z), 0.0f)) + vec4(cm.coords, 1.0f);
-
-			//TODO: if anywhere, texture rotations probably go here. IDK how that is to be done yet.
-			//todo: probably somethin gto do with the UV i guess.
-			//so each of these are the rotated coords of the corners of the cuboid
-			//todo: now you can decide whether each face/triangle pair should be there
-				
-			if (cm.faces & 0b00100000)//+y
+			ppp = rotateAroundCenter(rm, vec4(adjust(e.to.x, e.to.y, e.to.z), 0.0f)) + vec4(cm.coords, 0.0f);
+			ppn = rotateAroundCenter(rm, vec4(adjust(e.to.x, e.to.y, e.from.z), 0.0f)) + vec4(cm.coords, 0.0f);
+			pnp = rotateAroundCenter(rm, vec4(adjust(e.to.x, e.from.y, e.to.z), 0.0f)) + vec4(cm.coords, 0.0f);
+			pnn = rotateAroundCenter(rm, vec4(adjust(e.to.x, e.from.y, e.from.z), 0.0f)) + vec4(cm.coords, 0.0f);
+			npp = rotateAroundCenter(rm, vec4(adjust(e.from.x, e.to.y, e.to.z), 0.0f)) + vec4(cm.coords, 0.0f);
+			npn = rotateAroundCenter(rm, vec4(adjust(e.from.x, e.to.y, e.from.z), 0.0f)) + vec4(cm.coords, 0.0f);
+			nnp = rotateAroundCenter(rm, vec4(adjust(e.from.x, e.from.y, e.to.z), 0.0f)) + vec4(cm.coords, 0.0f);
+			nnn = rotateAroundCenter(rm, vec4(adjust(e.from.x, e.from.y, e.from.z), 0.0f)) + vec4(cm.coords, 0.0f);
+					   
+			if (cm.faces & 0b00100000 && !(e.up.cullFace & 0b11000000))//+y
 			{
-				//vec2(1, 1) = e.up
-
-				float tex = normalizeTexture(e.up.texture);
-				verts.push_back(VertToBeRendered( ppp, vec2(1, 1), tex ));
-				verts.push_back(VertToBeRendered( ppn, vec2(1, 0), tex ));
-				verts.push_back(VertToBeRendered( npn, vec2(0, 0), tex ));
-				verts.push_back(VertToBeRendered( ppp, vec2(1, 1), tex ));
-				verts.push_back(VertToBeRendered( npn, vec2(0, 0), tex ));
-				verts.push_back(VertToBeRendered( npp, vec2(0, 1), tex ));
+				addFace(verts, npn, npp, ppp, ppn, e.up.uv, e.up.rotation, e.yRot, e.uvLock, e.up.texture);
 			}
-			if (cm.faces & 0b00010000)//-y
+			if (cm.faces & 0b00010000 && !(e.down.cullFace & 0b11000000))//-y
 			{
-				float tex = normalizeTexture(e.down.texture);
-				verts.push_back(VertToBeRendered( pnn, vec2(1, 1), tex ));
-				verts.push_back(VertToBeRendered( pnp, vec2(1, 0), tex ));
-				verts.push_back(VertToBeRendered( nnn, vec2(0, 1), tex ));
-				verts.push_back(VertToBeRendered( nnn, vec2(0, 1), tex ));
-				verts.push_back(VertToBeRendered(pnp, vec2(1, 0), tex));
-				verts.push_back(VertToBeRendered( nnp, vec2(0, 0), tex ));
+				addFace(verts, nnp, nnn, pnn, pnp, e.down.uv, e.down.rotation, e.yRot, e.uvLock, e.down.texture);
 			}
-			if (cm.faces & 0b00001000)//+x
+			if (cm.faces & 0b00001000 && !(e.east.cullFace & 0b11000000))//+x
 			{
-				float tex = normalizeTexture(e.east.texture);
-				verts.push_back(VertToBeRendered( ppp, vec2(0, 0), tex ));
-				verts.push_back(VertToBeRendered( pnp, vec2(0, 1), tex ));
-				verts.push_back(VertToBeRendered( ppn, vec2(1, 0), tex ));
-				verts.push_back(VertToBeRendered( ppn, vec2(1, 0), tex ));
-				verts.push_back(VertToBeRendered( pnp, vec2(0, 1), tex ));
-				verts.push_back(VertToBeRendered( pnn, vec2(1, 1), tex ));
+				addFace(verts, ppp, pnp, pnn, ppn, e.east.uv, e.east.rotation, e.yRot % 180 == 90 ? 0 :e.xRot, e.uvLock, e.east.texture);
 			}
-			if (cm.faces & 0b00000100)//-x
+			if (cm.faces & 0b00000100 && !(e.west.cullFace & 0b11000000))//-x
 			{
-				float tex = normalizeTexture(e.west.texture);
-				verts.push_back(VertToBeRendered( npn, vec2(0, 0), tex ));
-				verts.push_back(VertToBeRendered( nnn, vec2(0, 1), tex ));
-				verts.push_back(VertToBeRendered( npp, vec2(1, 0), tex ));
-				verts.push_back(VertToBeRendered( npp, vec2(1, 0), tex ));
-				verts.push_back(VertToBeRendered( nnn, vec2(0, 1), tex ));
-				verts.push_back(VertToBeRendered( nnp, vec2(1, 1), tex ));
+				addFace(verts, npn, nnn, nnp, npp, e.west.uv, e.west.rotation, e.yRot % 180 == 90 ? 0 : e.xRot, e.uvLock, e.west.texture);
 			}
-			if (cm.faces & 0b00000010)//+z
+			if (cm.faces & 0b00000010 && !(e.south.cullFace & 0b11000000))//+z
 			{
-				float tex = normalizeTexture(e.south.texture);
-				verts.push_back(VertToBeRendered( npp, vec2(0, 0), tex ));
-				verts.push_back(VertToBeRendered( pnp, vec2(1, 1), tex ));
-				verts.push_back(VertToBeRendered( ppp, vec2(1, 0), tex ));
-				verts.push_back(VertToBeRendered( npp, vec2(0, 0), tex ));
-				verts.push_back(VertToBeRendered( nnp, vec2(0, 1), tex ));
-				verts.push_back(VertToBeRendered( pnp, vec2(1, 1), tex ));
+				addFace(verts, npp, nnp, pnp, ppp, e.south.uv, e.south.rotation, e.yRot % 180 == 0 ? 0 : e.xRot, e.uvLock, e.south.texture);
 			}
-			if (cm.faces & 0b00000001)//-z
+			if (cm.faces & 0b00000001 && !(e.north.cullFace & 0b11000000))//-z
 			{
-				float tex = normalizeTexture(e.north.texture);
-				verts.push_back(VertToBeRendered( ppn, vec2(0, 0), tex ));
-				verts.push_back(VertToBeRendered( pnn, vec2(0, 1), tex ));
-				verts.push_back(VertToBeRendered( npn, vec2(1, 0), tex ));
-				verts.push_back(VertToBeRendered( npn, vec2(1, 0), tex ));
-				verts.push_back(VertToBeRendered( pnn, vec2(0, 1), tex ));
-				verts.push_back(VertToBeRendered( nnn, vec2(1, 1), tex ));
+				addFace(verts, ppn, pnn, nnn, npn, e.north.uv, e.north.rotation, e.yRot % 180 == 0 ? 0 : e.xRot, e.uvLock, e.north.texture);
 			}
 		}
 	}
@@ -235,23 +236,26 @@ unordered_map<string, int> OpenGL::loadTextures(string path)
 	{
 		if (textureFile.path().extension().u8string() == ".png")
 		{
+			//printf("doing image %s\n", textureFile.path().filename().stem().u8string().c_str());
 			int width, height, channels;
 
 			//TODO: Come back here and figure out animated textures. For now i'm just taking the top most frame and using that statically.
 			//todo maybe each one will be a mipmap in each level?
-			unsigned char* initImage = stbi_load(textureFile.path().u8string().c_str(), &width, &height, &channels, 0);
+			unsigned char* initImage = stbi_load(textureFile.path().u8string().c_str(), &width, &height, &channels, 4);
 
+			//printf("it has %i channels\n", channels);
 			if (initImage == NULL)
 			{
 				fprintf(stderr, "image not loaded\n");
 				fprintf(stderr, "%s\n", textureFile.path().u8string().c_str());
 				exit(-1);
 			}
+
 			//so the number 1024 might seem like a magic number, but let me explain
 			//16pixels*16pixels*4channels(bytes) = 1024, because all the textures come in vertical
 			//The images are loaded in row major order, so this works
-			unsigned char* cutImage = (unsigned char*)malloc(1024);
-			if (cutImage == NULL)
+			unsigned char* cutImage = new unsigned char[1024];
+			if (!cutImage)
 			{
 				fprintf(stderr, "memcpy error #5\n");
 				exit(-1);
@@ -326,6 +330,7 @@ void OpenGL::initializeOpenGL()
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_FRAMEBUFFER_SRGB);
 	glEnable(GL_DEPTH_TEST);
+	glFrontFace(GL_CCW);
 
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);

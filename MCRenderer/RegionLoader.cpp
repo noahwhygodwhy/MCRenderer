@@ -7,7 +7,6 @@
 #include <cstdint>
 #include <stdint.h>
 #include <algorithm>
-#include <filesystem>
 #include "OpenGL.h"
 #include "json.hpp"
 
@@ -23,6 +22,7 @@
 #include "Biomes.h"
 using namespace std;
 
+using namespace std::filesystem;
 
 static int counter = 0;
 
@@ -134,6 +134,12 @@ Chunk * RegionLoader::createChunk(vector<unsigned char> * decompressedData)
 	toReturn->x = level->getTag("xPos")->toTag<int32_t>()->getValue();
 	toReturn->z = level->getTag("zPos")->toTag<int32_t>()->getValue();
 
+	//if (toReturn->x != 0 || toReturn->z != 0)//TODO::
+	//{
+	//	return nullptr;
+	//}
+	//printf("x and z = %i, %i\n", toReturn->x, toReturn->z);
+
 	if (level->getValues().count("Biomes") > 1)
 	{
 		vector<int32_t> biomes = level->getTag("Biomes")->toTagArray<int32_t>()->getValues();
@@ -206,14 +212,29 @@ Chunk * RegionLoader::createChunk(vector<unsigned char> * decompressedData)
 	return toReturn;
 }
 
+
+pair<int32_t, int32_t> parseRegCoords(string filename)
+{
+	//printf("parsing %s\n", filename);
+	vector<string> stuff = split(filename, '.');
+	int32_t x = stoi(stuff[1]);
+	int32_t z = stoi(stuff[2]);
+	//printf("returning %i, %i\n", x, z);
+	return pair(x, z);
+}
+
 //reads a file into a buffer, decompresses it, loads it into NBT trees, and then Chunks, and then returns a vector of those chunks
-Region * RegionLoader::loadRegion(string filename)
+Region* RegionLoader::loadRegion(directory_entry filepath)
 {
 	Region * reg = new Region();
+	pair<int32_t, int32_t> coords = parseRegCoords(filepath.path().filename().stem().u8string());
+	reg->x = coords.first;
+	reg->z = coords.second;
 
 	basic_ifstream<unsigned char> file;
 	file.exceptions(ios::failbit | ios::badbit);
-	file.open(filename, ios_base::in | ios_base::binary);
+
+	file.open(filepath.path().u8string(), ios_base::in | ios_base::binary);
 	
 	file.seekg(0, ios::end);
 	unsigned int length = file.tellg();
@@ -250,10 +271,32 @@ Region * RegionLoader::loadRegion(string filename)
 
 			Chunk * c = createChunk(decompressedData);
 			
-			if (c->x < 5 && c->z < 5)
-			{
-				reg->chunks[pair(c->x, c->z)] = c;
-			}
+			//if (c->x == 0 && c->z == 0)
+			//{
+			//	for (auto & [lev, sec] : c->sections)
+			//	{
+			//		for (int x = 0; x < 16; x++)
+			//		{
+			//			for (int y = 0; y < 16; y++)
+			//			{
+			//				for (int z = 0; z < 16; z++)
+			//				{
+			//					printf("block at %i, %i, %i: %s\n", x+(c->x*16), y+(lev*16), z+(c->z*16), sec->blocks[y][z][x].model.c_str());
+			//				}
+
+			//			}
+
+			//		}
+			//	}
+			//}
+			//printf("created chunk %i, %i\n", c->x, c->z);
+			//if (c != nullptr)
+			//{
+				if (c->x < 1 && c->z < 1)//TODO:
+			//	{
+					reg->chunks[pair(c->x, c->z)] = c;
+			//	}
+			//}
 		}
 	}
 	printf("returning region with %lli chunks\n", reg->chunks.size());
@@ -263,9 +306,24 @@ World *RegionLoader::loadWorld(string saveFolder, Asset * thicc)
 {	 
 	ass = thicc;
 
+	
 	World* world = new World();
-	Region* toAdd = loadRegion("C:\\Users\\noahm\\AppData\\Roaming\\.minecraft\\saves\\New World 2\\region\\r.0.0.mca");
-	world->regions[{toAdd->x, toAdd->z}] = toAdd;
+
+	directory_iterator textureDir(saveFolder);
+	
+	for (auto f : textureDir)
+	{
+		//printf("seeing region file %s\n", f.path().u8string().c_str());
+		if (f.path().filename() == "r.0.0.mca")
+		{
+			printf("loading region file %s\n", f.path().u8string().c_str());
+			Region* toAdd = loadRegion(f);
+			world->regions[{toAdd->x, toAdd->z}] = toAdd;
+		}
+	}
+	
+	//Region* toAdd = loadRegion(saveFolder+"r.-1.-3.mca");
+	//world->regions[pair(toAdd->x, toAdd->z)] = toAdd;
 
 	//world.regions[normX][normZ] = toAdd;
 
@@ -291,25 +349,29 @@ Model RegionLoader::getBlock(const int64_t& worldX, const int64_t& worldY, const
 		return m;
 	}
 
-	int64_t regX = worldX / 512;
-	if (worldX < 0) { regX--; }
-	int64_t regZ = worldZ / 512;
-	if (worldZ < 0) { regZ--; }
+	//printf("testing %i,%i\n", worldX, worldZ);
 
-	int chkX = (worldX % 512) / 16;
-	int chkZ = (worldZ % 512) / 16;
+	int32_t regX = worldX >> 9; //divides by 512, the size of a region
+	int32_t regZ = worldZ >> 9;
+
+	int chkX = worldX >> 4;//divides by 16, the size of a chunk
+	int chkZ = worldZ >> 4;
 
 	int secY = worldY / 16;
-	
-	int actualY = worldY % 16;
-	int actualX = (worldX % 16);//
-	int actualZ = (worldZ % 16);
 
+	int actualY = worldY & 0xF;
+	int actualX = worldX & 0xF;
+	int actualZ = worldZ & 0xF;
+
+	//printf("testing region %i, %i\n", regX, regZ);
 	if (world->regions.count({ regX, regZ }) > 0) //if the region exists
 	{
+		//printf("it exists\n");
 		Region* reg = world->regions.at(pair(regX, regZ)); //get ther region
+		//printf("testing chunk %i, %i\n", chkX, chkZ);
 		if (reg->chunks.count(pair(chkX, chkZ)) > 0)//if the chuunk exists
 		{
+			//printf("chk exists\n");
 			Chunk* chk = reg->chunks.at(pair(chkX, chkZ));//get the chunk
 			if (chk->sections.count(secY) > 0)//if the section exists
 			{
@@ -466,12 +528,12 @@ vector<culledModel> RegionLoader::cullWorld(World* world)
 						for (int z = 0; z < 16; z++)
 						{
 							vec3 orig = vec3(0, 0, 0);
-							orig.x += (reg.second->x * 512LL);
-							orig.z += (reg.second->z * 512LL);
+							//orig.x += (reg.second->x << 9);
+							//orig.z += (reg.second->z << 9);
 
-							orig.x += (chk.second->x * 16LL);
-							orig.z += (chk.second->z * 16LL);
-							orig.y += (sec.second->y * 16LL);
+							orig.x += (chk.second->x << 4);
+							orig.z += (chk.second->z << 4);
+							orig.y += (sec.second->y << 4);
 							
 							orig.x += x;
 							orig.y += y;
