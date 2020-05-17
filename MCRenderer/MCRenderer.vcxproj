@@ -791,6 +791,7 @@
     <Image Include="minecraft\textures\block\yellow_stained_glass_pane_top.png" />
     <Image Include="minecraft\textures\block\yellow_terracotta.png" />
     <Image Include="minecraft\textures\block\yellow_wool.png" />
+    <Image Include="Texture Test World\icon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="fragShader.glsl" />

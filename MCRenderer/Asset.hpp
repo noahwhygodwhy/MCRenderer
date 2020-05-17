@@ -12,9 +12,9 @@ using namespace nlohmann;
 
 using namespace glm;
 
-static const string TEXTURE_DIR_PATH = "C:/Users/noahm/OneDrive/Personal/CCC++/CCC++/minecraft/textures/";
-static const string MODEL_DIR_PATH = "C:/Users/noahm/OneDrive/Personal/CCC++/CCC++/minecraft/models/";
-static const string BLOCKSTATE_DIR_PATH = "C:/Users/noahm/OneDrive/Personal/CCC++/CCC++/minecraft/blockstates/";
+static const string TEXTURE_DIR_PATH = "../MCRenderer/minecraft/textures/";
+static const string MODEL_DIR_PATH = "../MCRenderer/minecraft/models/";
+static const string BLOCKSTATE_DIR_PATH = "../MCRenderer/minecraft/blockstates/";
 
 struct Face
 {

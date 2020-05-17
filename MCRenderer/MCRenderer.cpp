@@ -3,6 +3,7 @@
 #include "Asset.hpp"
 #include <filesystem>
 
+//#include <windows.h>
 
 using namespace std;
 using namespace std::filesystem;
@@ -10,6 +11,9 @@ using namespace std::filesystem;
 
 int main(void)
 {
+	
+
+	
 
 	OpenGL ogl(1600, 900);
 	ogl.initializeOpenGL();
@@ -17,16 +21,18 @@ int main(void)
 	Asset *ass = new Asset(textureMap);
 
 	RegionLoader rl;
-	World* world = rl.loadWorld("C:\\Users\\noahm\\AppData\\Roaming\\.minecraft\\saves\\Flat Lands\\region\\", ass);
+	World* world = rl.loadWorld("..\\MCRenderer\\GeneralWorld\\region\\", ass);
 	//World* world = rl.loadWorld("C:\\Users\\noahm\\OneDrive\\Desktop\\Texture Test World\\region\\", ass);
 
-	vector<culledModel> culledWorld = rl.cullWorld(world);
+	getchar();
 
-	printf("size of culled model: %lli\n", culledWorld.size());
+	//vector<culledModel> culledWorld = rl.cullWorld(world);
 
-	vector<VertToBeRendered> verts = ogl.convertWorldToVerts(culledWorld);
-	printf("gtg\n");
+	//printf("size of culled model: %lli\n", culledWorld.size());
 
-	printf("size of vert buffer: %lli\n", verts.size());
-	ogl.run(verts);
+	//vector<VertToBeRendered> verts = ogl.convertWorldToVerts(culledWorld);
+	//printf("gtg\n");
+
+	//printf("size of vert buffer: %lli\n", verts.size());
+	//ogl.run(verts);
 }

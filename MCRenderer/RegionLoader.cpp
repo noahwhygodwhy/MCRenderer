@@ -74,7 +74,7 @@ RegionLoader::~RegionLoader()
 }
 
 //generates a 64 bit bit mask with <bits> 1s starting from the least most bit
-//so if you input 4, the output would be 0000...000000001111
+//so if you input 4, the output would be 000000...000000001111
 size_t generateMask(const size_t& bits)
 {
 	size_t toReturn = 0;
@@ -292,7 +292,7 @@ Region* RegionLoader::loadRegion(directory_entry filepath)
 			//printf("created chunk %i, %i\n", c->x, c->z);
 			//if (c != nullptr)
 			//{
-				if (c->x < 1 && c->z < 1)//TODO:
+				//if (c->x < 1 && c->z < 1)//TODO:
 			//	{
 					reg->chunks[pair(c->x, c->z)] = c;
 			//	}

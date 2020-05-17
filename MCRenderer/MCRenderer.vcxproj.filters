@@ -22,6 +22,9 @@
     <Filter Include="Resource Files\textures\block">
       <UniqueIdentifier>{f427dd73-4da0-49b3-a2bf-d0b3235d4d43}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\testWorlds">
+      <UniqueIdentifier>{5e99304c-0211-4b91-865d-3786c724d206}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DirectionEnum.h">
@@ -1968,6 +1971,9 @@
     </Image>
     <Image Include="minecraft\textures\block\yellow_wool.png">
       <Filter>Resource Files\textures\block</Filter>
+    </Image>
+    <Image Include="Texture Test World\icon.png">
+      <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
