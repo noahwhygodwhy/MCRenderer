@@ -17,5 +17,3 @@ It also uses a couple libaries.
 These libraries include stb_image loader for loading textures at http://nothings.org/stb. This is public domain so that should be ok.
 I'm also using glad which was generated with https://glad.dav1d.de/#profile=core&language=c&specification=gl&loader=on&api=gl%3D4.6.
 Biomes.h contains a table of data for biome coloring, which isn't used yet, but was made by Eric Haines. (see full copyright in the file)
-
-If you have any questions about how to use it, well frankly it might not work yet, but feel free to message me on here or email me at noah.mathnerd.alvard@gmail.com.
