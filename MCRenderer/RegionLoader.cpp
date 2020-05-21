@@ -128,7 +128,6 @@ Chunk * RegionLoader::createChunk(vector<unsigned char> * decompressedData)
 	CompoundTag* result = parseNBT(decompressedData, &initZero);
 	//printf("NBT1 Parsed\n");
 	CompoundTag* root = result->toCT();
-
 	CompoundTag* level = root->getTag("Level")->toCT();
 
 	toReturn->x = level->getTag("xPos")->toTag<int32_t>()->getValue();

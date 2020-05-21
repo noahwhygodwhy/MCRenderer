@@ -1,6 +1,8 @@
 #include "OpenGL.h"
 #include "RegionLoader.h"
 #include "Asset.hpp"
+#include "NBTTags.hpp"
+#include "Decompressor.hpp"
 #include <filesystem>
 
 
@@ -11,8 +13,17 @@ using namespace std;
 using namespace std::filesystem;
 
 
+static string saveFolder = "..\\MCRenderer\\GeneralWorld\\region\\";
+
+
 int main(void)
 {
+	map<pair<int, int>, CompoundTag*> WorldNBT;
+
+	ChunkProvider chunkProvider = new ChunkProvider(Decompressor::decompress(saveFolder))
+
+
+
 	
 	//OpenGL ogl(1600, 900);
 	//ogl.initializeOpenGL();

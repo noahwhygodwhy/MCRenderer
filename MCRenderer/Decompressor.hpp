@@ -12,7 +12,7 @@ class Decompressor
 public:
 	Decompressor();
 	~Decompressor();
-	map<pair<int, int>, CompoundTag*> decompress(string saveFolder);
+	static map<pair<int, int>, CompoundTag*> decompress(string saveFolder);
 private:
 
 };
