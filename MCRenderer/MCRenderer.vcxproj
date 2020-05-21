@@ -168,7 +168,6 @@
     <ClCompile Include="Palette.cpp" />
     <ClCompile Include="RegionLoader.cpp" />
     <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="minecraft\textures\block\acacia_door_bottom.png" />
