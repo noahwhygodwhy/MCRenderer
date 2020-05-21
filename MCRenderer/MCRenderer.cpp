@@ -3,6 +3,8 @@
 #include "Asset.hpp"
 #include <filesystem>
 
+
+
 //#include <windows.h>
 
 using namespace std;
@@ -26,13 +28,13 @@ int main(void)
 
 	getchar();
 
-	//vector<culledModel> culledWorld = rl.cullWorld(world);
+	vector<culledModel> culledWorld = rl.cullWorld(world);
 
-	//printf("size of culled model: %lli\n", culledWorld.size());
+	printf("size of culled model: %lli\n", culledWorld.size());
 
-	//vector<VertToBeRendered> verts = ogl.convertWorldToVerts(culledWorld);
-	//printf("gtg\n");
+	vector<VertToBeRendered> verts = ogl.convertWorldToVerts(culledWorld);
+	printf("gtg\n");
 
-	//printf("size of vert buffer: %lli\n", verts.size());
-	//ogl.run(verts);
+	printf("size of vert buffer: %lli\n", verts.size());
+	ogl.run(verts);
 }
