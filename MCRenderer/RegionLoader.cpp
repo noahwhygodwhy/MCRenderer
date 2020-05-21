@@ -18,10 +18,10 @@
 #include <utility>
 #include "RegionLoader.h"
 #include "NBTTags.hpp"
-#include "Palette.h"
 #include "Biomes.h"
-using namespace std;
+#include "Palette.h"
 
+using namespace std;
 using namespace std::filesystem;
 
 static int counter = 0;
@@ -283,9 +283,7 @@ Region* RegionLoader::loadRegion(directory_entry filepath)
 			//				{
 			//					printf("block at %i, %i, %i: %s\n", x+(c->x*16), y+(lev*16), z+(c->z*16), sec->blocks[y][z][x].model.c_str());
 			//				}
-
 			//			}
-
 			//		}
 			//	}
 			//}
@@ -304,9 +302,7 @@ Region* RegionLoader::loadRegion(directory_entry filepath)
 }
 World *RegionLoader::loadWorld(string saveFolder, Asset * thicc)
 {	 
-	ass = thicc;
-
-	
+	this->ass = thicc;
 	World* world = new World();
 
 	directory_iterator textureDir(saveFolder);

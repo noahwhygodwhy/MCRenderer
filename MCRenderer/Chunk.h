@@ -49,6 +49,7 @@ struct Section
 	array<array<array<Model, 16>, 16>, 16> blocks;
 };
 
+//this doesn't really belong here, but it's better than anywhere else I can think of.
 namespace std
 {
 	template<>
