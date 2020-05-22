@@ -20,6 +20,7 @@ Decompressor::~Decompressor()
 {
 }
 
+//splits a string into parts around the delimiter
 vector<string> split(const string s, char delim)
 {
 	vector<string> sections;
@@ -31,6 +32,8 @@ vector<string> split(const string s, char delim)
 	}
 	return sections;
 }
+
+//gets the region coordinates from the file name
 pair<int32_t, int32_t> parseRegCoords(string filename)
 {
 	//printf("parsing %s\n", filename);
@@ -40,7 +43,9 @@ pair<int32_t, int32_t> parseRegCoords(string filename)
 	//printf("returning %i, %i\n", x, z);
 	return pair(x, z);
 }
-//takes the save folder, and decompresses and separates it by chunks identified by their global x/z coordinates in the map
+
+//takes the save folder, and decomprempresses the raw chunk data, then parses it into NBT format
+//it returns a map where the keys are the global chunk coordinates for the value that is the chunk in NBT format
 map<pair<int, int>, CompoundTag*> Decompressor::decompress(string saveFolder)
 {
 	map<pair<int, int>, CompoundTag*> toReturn = map<pair<int, int>, CompoundTag*>();

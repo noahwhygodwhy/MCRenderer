@@ -1,9 +1,10 @@
+#include <filesystem>
 #include "OpenGL.h"
 #include "RegionLoader.h"
 #include "Asset.hpp"
 #include "NBTTags.hpp"
 #include "Decompressor.hpp"
-#include <filesystem>
+#include "ChunkMaker.hpp"
 
 
 
@@ -18,10 +19,12 @@ static string saveFolder = "..\\MCRenderer\\GeneralWorld\\region\\";
 
 int main(void)
 {
-	map<pair<int, int>, CompoundTag*> WorldNBT;
+	map<pair<int, int>, CompoundTag*> worldNBT;
+	map<pair<int, int>, Chunk*> worldChunks;
 
-	ChunkProvider chunkProvider = new ChunkProvider(Decompressor::decompress(saveFolder))
+	worldNBT = Decompressor::decompress(saveFolder);
 
+	worldChunks = ChunkMaker::makeChunks(worldNBT);
 
 
 	

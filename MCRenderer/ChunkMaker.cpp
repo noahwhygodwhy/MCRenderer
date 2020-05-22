@@ -1,28 +1,26 @@
-#include "ChunkProvider.h"
-#include "NBTTags.hpp"
-#include "Biomes.h"
-#include "Palette.h"
+#include "ChunkMaker.hpp"
 
-ChunkProvider::ChunkProvider(map<pair<int, int>, CompoundTag*> chunkNBT)
+using namespace std;
+
+//takes a map, where keys are global chunk coords, and values are the NBT data describing those chunks, and
+//converts it to a map where the keys are global chunk coords and the values are the Chunk objects that describe the chunks
+inline map<pair<int, int>, Chunk*> ChunkMaker::makeChunks(map<pair<int, int>, CompoundTag*> worldNBT)
 {
-	this->chunkNBT = chunkNBT;
+	map<pair<int, int>, Chunk*> toReturn = map<pair<int, int>, Chunk*>();
+
+	for (pair<pair<int, int>, CompoundTag*> entry : worldNBT)
+	{
+		toReturn[entry.first] = createChunk(entry.second);
+	}
+	return toReturn;
 }
 
-ChunkProvider::~ChunkProvider()
+//Takes the NBT data describing a chunk and returns a Chunk object with the information neatly sorted in it in an easier to read manner.
+Chunk* createChunk(CompoundTag* chunkNBT)
 {
-}
-
-Chunk* ChunkProvider::getChunk(int chkX, int chkY)
-{
-
 	Chunk* toReturn = new Chunk();
-	size_t initZero = 0;//IMPORTANT
 
-	//printf("NBT1 Parsed\n");\
-
-
-	CompoundTag* root = this->chunkNBT[{chkX, chkY}];
-
+	CompoundTag* root = chunkNBT;
 	CompoundTag* level = root->getTag("Level")->toCT();
 
 	toReturn->x = level->getTag("xPos")->toTag<int32_t>()->getValue();
