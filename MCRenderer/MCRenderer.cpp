@@ -19,19 +19,22 @@ static string saveFolder = "..\\MCRenderer\\GeneralWorld\\region\\";
 
 int main(void)
 {
+
+
+	OpenGL ogl(1600, 900);
+	unordered_map<string, int> textureMap = ogl.loadTextures(TEXTURE_DIR_PATH);
+	Asset *ass = new Asset(textureMap);
+	ogl.initializeOpenGL();
+
 	map<pair<int, int>, CompoundTag*> worldNBT;
 	map<pair<int, int>, Chunk*> worldChunks;
 
 	worldNBT = Decompressor::decompress(saveFolder);
 
-	worldChunks = ChunkMaker::makeChunks(worldNBT);
+	worldChunks = ChunkMaker::makeChunks(worldNBT, ass);
 
 
 	
-	//OpenGL ogl(1600, 900);
-	//ogl.initializeOpenGL();
-	//unordered_map<string, int> textureMap = ogl.loadTextures(TEXTURE_DIR_PATH);
-	//Asset *ass = new Asset(textureMap);
 
 	//RegionLoader rl;
 	//World* world = rl.loadWorld("..\\MCRenderer\\GeneralWorld\\region\\", ass);

@@ -144,7 +144,9 @@
     <ClInclude Include="Biomes.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chunk.h" />
+    <ClInclude Include="ChunkCuller.hpp" />
     <ClInclude Include="ChunkMaker.hpp" />
+    <ClInclude Include="ChunkPipeline.hpp" />
     <ClInclude Include="ChunkProvider.h" />
     <ClInclude Include="Decompressor.hpp" />
     <ClInclude Include="DirectionEnum.h" />
@@ -163,7 +165,9 @@
   <ItemGroup>
     <ClCompile Include="Asset.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ChunkCuller.cpp" />
     <ClCompile Include="ChunkMaker.cpp" />
+    <ClCompile Include="ChunkPipeline.cpp" />
     <ClCompile Include="ChunkProvider.cpp" />
     <ClCompile Include="Decompressor.cpp" />
     <ClCompile Include="glad.c" />
