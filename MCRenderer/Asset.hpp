@@ -50,10 +50,11 @@ struct Model
 {
 	vector<Element> elements;
 	string model = "NULL";
-	//todo: int weight = 1;
+	uint8_t faces = 0b00111111;
+	//todo: int weight = 1;?
 	bool AmbOcc = true;
 	bool cullForMe = false;
-	//todo: particle
+	//todo: particle?
 };
 
 enum BlockStateType

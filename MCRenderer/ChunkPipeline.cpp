@@ -188,7 +188,7 @@ Chunk* createChunk(CompoundTag* chunkNBT)
 
 //takes a map, where keys are global chunk coords, and values are the NBT data describing those chunks, and
 //converts it to a map where the keys are global chunk coords and the values are the Chunk objects that describe the chunks
-map<pair<int, int>, Chunk*> createChunks(map<pair<int, int>, CompoundTag*> worldNBT)
+map<pair<int, int>, Chunk*> createChunks(const map<pair<int, int>, CompoundTag*>& worldNBT)
 {
 	map<pair<int, int>, Chunk*> toReturn = map<pair<int, int>, Chunk*>();
 
@@ -197,4 +197,91 @@ map<pair<int, int>, Chunk*> createChunks(map<pair<int, int>, CompoundTag*> world
 		toReturn[entry.first] = createChunk(entry.second);
 	}
 	return toReturn;
+}
+
+//returns whether the block at the coordinates has the cullForMe flag or not.
+bool cullForThisBlock(ivec3 coord, const map<pair<int, int>, Chunk*>& worldChunks)
+{
+	pair<int, int> chk = { coord.x >> 4, coord.z >> 4 };
+	if (worldChunks.count(chk) > 0) //if the chunk the block would exist in exists
+	{
+		int sec = coord.y >> 4;
+		if (worldChunks.at(chk)->sections.count(sec) > 0)//if the section it would be in exists
+		{
+			if (worldChunks.at(chk)->sections.at(sec)->blocks[coord.y][coord.z][coord.x].cullForMe) //if it should be culled for
+			{
+				return true; //duh
+			}
+		}
+	}
+	return false; //nope
+}
+
+uint8_t getSides(ivec3 global, const map<pair<int, int>, Chunk*>& worldChunks)
+{
+	ivec3 top = global + ivec3(0, 1, 0);
+	ivec3 bot = global + ivec3(0, -1, 0);
+	ivec3 left = global + ivec3(-1, 0, 0);
+	ivec3 right = global + ivec3(10, 0, 0);
+	ivec3 back = global + ivec3(0, 0, 1);
+	ivec3 front = global + ivec3(0, 0, -1);
+
+	uint8_t toReturn = 0b00000000;
+	if (cullForThisBlock(top, worldChunks))
+	{
+		toReturn &= 0b00100000;
+	}
+	if (cullForThisBlock(bot, worldChunks))
+	{
+		toReturn &= 0b00010000;
+	}
+	if (cullForThisBlock(left, worldChunks))
+	{
+		toReturn &= 0b00001000;
+	}
+	if (cullForThisBlock(right, worldChunks))
+	{
+		toReturn &= 0b00000100;
+	}
+	if (cullForThisBlock(back, worldChunks))
+	{
+		toReturn &= 0b00000010;
+	}
+	if (cullForThisBlock(front, worldChunks))
+	{
+		toReturn &= 0b00000001;
+	}
+	return toReturn;
+}
+
+//removes all the blocks that wouldn't be visible, and sets what sides should be visible in the model's sides int8
+//Returns the same map, just with the modified models in the chunks
+map<pair<int, int>, Chunk*> cullChunks(map<pair<int, int>, Chunk*>& worldChunks)
+{
+	for (pair<pair<int, int>, Chunk*> chunk : worldChunks) //for each chunk
+	{
+		for (pair<int, Section*> section : chunk.second->sections) //for each section in that chunk
+		{
+			for (int y = 0; y < 16; y++)
+			{
+				for (int x = 0; x < 16; x++)
+				{
+					for (int z = 0; z < 16; z++)
+					{
+						ivec3 global = ivec3(x, y, z);
+
+						global.x += (chunk.second->x << 4);
+						global.z += (chunk.second->z << 4);
+						global.y += (section.second->y << 4);
+
+						//Model curr = worldChunks[{chunk.first.first, chunk.first.second}]->sections.at(section.first)->blocks[y][z][x]; //lol
+
+						worldChunks[{chunk.first.first, chunk.first.second}]->sections.at(section.first)->blocks[y][z][x].faces = getSides(global, worldChunks);
+
+					}
+				}
+			}
+		}
+	}
+	return worldChunks;
 }
