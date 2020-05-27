@@ -28,14 +28,6 @@ struct Face
 };
 
 
-struct Cuboid
-{
-	Triangle triangles[12];
-};
-struct Triangle
-{
-	Vert verts[3];
-};
 struct Vert
 {
 	float x;
@@ -44,6 +36,14 @@ struct Vert
 	float u;
 	float v;
 	float t; //texture
+};
+struct Triangle
+{
+	Vert verts[3];
+};
+struct Cuboid
+{
+	Triangle triangles[12];
 };
 
 /*struct VBODO

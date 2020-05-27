@@ -49,6 +49,7 @@ struct Section
 	array<array<array<Model, 16>, 16>, 16> blocks;
 };
 
+
 //this doesn't really belong here, but it's better than anywhere else I can think of.
 namespace std
 {
@@ -64,6 +65,16 @@ namespace std
 			key *= 0xc4ceb9fe1a85ec53;
 			key ^= (key >> 33);
 			return (size_t)key;
+		}
+	};
+
+
+	template<>
+	struct equal_to<pair<int32_t, int32_t>>
+	{
+		bool operator ()(const pair<int32_t, int32_t>& v1, const pair<int32_t, int32_t>& v2) const
+		{
+			return (v1.first == v2.first) && (v1.second == v2.second);
 		}
 	};
 }

@@ -140,7 +140,7 @@ SuperTag parseNBT(vector<unsigned char>& decompressedData, size_t* index, TagTyp
 
 static uint64_t layers = 0;
 
-CompoundTag parseCompoundTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type)
+CompoundTag parseCompoundTag(vector<unsigned char>& decompressedData, size_t* index, TagType type)
 {
 	CompoundTag toReturn(type);// = new CompoundTag(type);
 	//layers++;
@@ -170,7 +170,7 @@ CompoundTag parseCompoundTag(const vector<unsigned char>& decompressedData, size
 	//layers--;
 	return toReturn;
 }
-TagList parseListTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type)
+TagList parseListTag(vector<unsigned char>& decompressedData, size_t* index, TagType type)
 {
 	TagType subType = (TagType)decompressedData.at(*index);
 	(*index) += 1;

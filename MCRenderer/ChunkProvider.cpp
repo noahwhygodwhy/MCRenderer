@@ -1,4 +1,4 @@
-#include "ChunkProvider.h"
+/*#include "ChunkProvider.h"
 #include "NBTTags.hpp"
 #include "Biomes.h"
 #include "Palette.h"
@@ -104,4 +104,4 @@ Chunk* ChunkProvider::getChunk(int chkX, int chkY)
 	}
 
 	return toReturn;
-}
+}*/

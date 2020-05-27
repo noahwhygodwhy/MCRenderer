@@ -31,9 +31,9 @@ pair<int32_t, int32_t> parseRegCoords(string filename)
 
 //takes the save folder, and decomprempresses the raw chunk data, then parses it into NBT format
 //it returns a map where the keys are the global chunk coordinates for the value that is the chunk in NBT format
-map<pair<int, int>, CompoundTag> decompress(string saveFolder)
+unordered_map<pair<int, int>, CompoundTag> decompress(string saveFolder)
 {
-	map<pair<int, int>, CompoundTag> toReturn;// = map<pair<int, int>, CompoundTag*>();
+	unordered_map<pair<int, int>, CompoundTag> toReturn;// = map<pair<int, int>, CompoundTag*>();
 	directory_iterator textureDir(saveFolder);
 	for (auto f : textureDir)
 	{
@@ -231,9 +231,9 @@ Chunk createChunk(CompoundTag chunkNBT, Asset& ass)
 
 //takes a map, where keys are global chunk coords, and values are the NBT data describing those chunks, and
 //converts it to a map where the keys are global chunk coords and the values are the Chunk objects that describe the chunks
-map<pair<int, int>, Chunk> createChunks(const map<pair<int, int>, CompoundTag>& worldNBT, Asset& ass)
+unordered_map<pair<int, int>, Chunk> createChunks(const unordered_map<pair<int, int>, CompoundTag>& worldNBT, Asset& ass)
 {
-	map<pair<int, int>, Chunk> toReturn = map<pair<int, int>, Chunk>();
+	unordered_map<pair<int, int>, Chunk> toReturn;
 
 	for (pair<pair<int, int>, CompoundTag> entry : worldNBT)
 	{
@@ -243,7 +243,7 @@ map<pair<int, int>, Chunk> createChunks(const map<pair<int, int>, CompoundTag>& 
 }
 
 //returns whether the block at the coordinates has the cullForMe flag or not.
-bool cullForThisBlock(ivec3 coord, const map<pair<int, int>, Chunk>& worldChunks)
+bool cullForThisBlock(ivec3 coord, const unordered_map<pair<int, int>, Chunk>& worldChunks)
 {
 	pair<int, int> chk = { coord.x >> 4, coord.z >> 4 };
 	if (worldChunks.count(chk) > 0) //if the chunk the block would exist in exists
@@ -257,7 +257,7 @@ bool cullForThisBlock(ivec3 coord, const map<pair<int, int>, Chunk>& worldChunks
 	return false; //nope
 }
 
-uint8_t getSides(ivec3 global, const map<pair<int, int>, Chunk*>& worldChunks)
+uint8_t getSides(ivec3 global, const unordered_map<pair<int, int>, Chunk>& worldChunks)
 {
 	ivec3 top = global + ivec3(0, 1, 0);
 	ivec3 bot = global + ivec3(0, -1, 0);
@@ -296,7 +296,7 @@ uint8_t getSides(ivec3 global, const map<pair<int, int>, Chunk*>& worldChunks)
 
 //removes all the blocks that wouldn't be visible, and sets what sides should be visible in the model's sides int8
 //Returns the same map, just with the modified models in the chunks
-map<pair<int, int>, Chunk> cullChunks(map<pair<int, int>, Chunk>& worldChunks)
+unordered_map<pair<int, int>, Chunk> cullChunks(unordered_map<pair<int, int>, Chunk>& worldChunks)
 {
 	for (pair<pair<int, int>, Chunk> chunk : worldChunks) //for each chunk
 	{
@@ -326,7 +326,7 @@ map<pair<int, int>, Chunk> cullChunks(map<pair<int, int>, Chunk>& worldChunks)
 	return worldChunks;
 }
 
-map<pair<int, int>, VertexChunk*> verticizeChunks(const map<pair<int, int>, Chunk*>& culledChunks)
+unordered_map<pair<int, int>, VertexChunk> verticizeChunks(const unordered_map<pair<int, int>, Chunk>& culledChunks)
 {
-	map<pair<int, int>, VertexChunk>//todo;;
+	return unordered_map<pair<int, int>, VertexChunk>();//TODO
 }

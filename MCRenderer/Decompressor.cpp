@@ -1,4 +1,4 @@
-#include "Decompressor.hpp"
+/*#include "Decompressor.hpp"
 #include <iostream>
 #include <fstream>
 #include <filesystem>
@@ -110,4 +110,4 @@ map<pair<int, int>, CompoundTag*> Decompressor::decompress(string saveFolder)
 		}
 	}
 	return toReturn;
-}
+}*/

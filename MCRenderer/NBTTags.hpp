@@ -4,6 +4,7 @@
 #include "Chunk.h"
 #include "RegionLoader.h"
 #include <unordered_map>
+#include <stdint.h>
 
 enum TagType
 {
@@ -48,6 +49,10 @@ public:
 	{
 		type = t;
 	}
+	SuperTag()
+	{
+		type = TAG_END;
+	}
 
 	virtual ~SuperTag() = default;
 
@@ -62,13 +67,17 @@ public:
 	template <class T>
 	Tag<T> toTag()
 	{
-		return dynamic_cast<Tag<T>>(this);
+		return *static_cast<Tag<T>*>(this);
 	}
+	/*Tag<uint32_t> toTag()
+	{
+		return *dynamic_cast<Tag<uint32_t>>(this);
+	}*/
 
 	template <class T>
 	TagArray<T> toTagArray()
 	{
-		return dynamic_cast<TagArray<T>>(this);
+		return *static_cast<TagArray<T>*>(this);
 	}
 
 	
@@ -159,6 +168,9 @@ public:
 	CompoundTag(TagType t) : SuperTag(t)
 	{
 	}
+	CompoundTag() : SuperTag(TAG_END)
+	{
+	}
 	~CompoundTag()
 	{
 		//todo:
@@ -189,7 +201,7 @@ private:
 
 string tts(TagType t);
 
-vector<Chunk> loadRegion(string filename);
+//vector<Chunk> loadRegion(string filename);
 //SuperTag* parseNBT(const vector<unsigned char>& decompressedData, size_t *index);
 //SuperTag* parseNBT(const vector<unsigned char>& decompressedData, size_t* index, bool justPayload = false, TagType type = TAG_NOT_EXIST);
 
@@ -209,6 +221,6 @@ TagArray<int8_t> parseByteArrayTag(const vector<unsigned char>& decompressedData
 Tag<string> parseStringTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
 TagArray<int32_t> parseIntArrayTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
 TagArray<int64_t> parseLongArrayTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
-CompoundTag parseCompoundTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
-TagList parseListTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
+CompoundTag parseCompoundTag(vector<unsigned char>& decompressedData, size_t* index, TagType type);
+TagList parseListTag(vector<unsigned char>& decompressedData, size_t* index, TagType type);
 void printTags(SuperTag root);
