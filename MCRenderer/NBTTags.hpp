@@ -48,6 +48,7 @@ public:
 	{
 		type = t;
 	}
+
 	virtual ~SuperTag() = default;
 
 	TagType getType()
@@ -55,20 +56,19 @@ public:
 		return type;
 	}
 
-
-	TagList* toList();
-	CompoundTag* toCT();
+	TagList toList();
+	CompoundTag toCT();
 
 	template <class T>
-	Tag<T>* toTag()
+	Tag<T> toTag()
 	{
-		return dynamic_cast<Tag<T>*>(this);
+		return dynamic_cast<Tag<T>>(this);
 	}
 
 	template <class T>
-	TagArray<T>* toTagArray()
+	TagArray<T> toTagArray()
 	{
-		return dynamic_cast<TagArray<T>*>(this);
+		return dynamic_cast<TagArray<T>>(this);
 	}
 
 	
@@ -126,21 +126,22 @@ private:
 class TagList : public SuperTag
 {
 public:
-	vector<SuperTag*> values;
+	vector<SuperTag> values;
 	TagType subType;
 	TagList(TagType t, TagType st) : SuperTag(t)
 	{
 		subType = st;
 	}
+	
 	virtual ~TagList()
 	{
 		//todo:
 	}
-	void addValue(SuperTag * val)
+	void addValue(SuperTag val)
 	{
 		values.push_back(val);
 	}
-	vector<SuperTag*> getValues()
+	vector<SuperTag> getValues()
 	{
 		return values;
 	}
@@ -154,7 +155,7 @@ private:
 class CompoundTag : public SuperTag
 {
 public:
-	unordered_map<string, SuperTag*>  values;
+	unordered_map<string, SuperTag>  values;
 	CompoundTag(TagType t) : SuperTag(t)
 	{
 	}
@@ -162,16 +163,16 @@ public:
 	{
 		//todo:
 	}
-	SuperTag addValue(string name, SuperTag * val)
+	SuperTag addValue(string name, SuperTag val)
 	{
 		values[name] = val;
-		return *val;
+		return val;
 	}
-	unordered_map<string, SuperTag*> getValues()
+	unordered_map<string, SuperTag> getValues()
 	{
 		return values;
 	}
-	SuperTag * getTag(string name)
+	SuperTag getTag(string name)
 	{
 		//printf("finding %s\n", name);
 		//for (auto& [key, value] : values)
@@ -189,25 +190,25 @@ private:
 string tts(TagType t);
 
 vector<Chunk> loadRegion(string filename);
-//SuperTag* parseNBT(vector<unsigned char>* decompressedData, size_t *index);
-//SuperTag* parseNBT(vector<unsigned char>* decompressedData, size_t* index, bool justPayload = false, TagType type = TAG_NOT_EXIST);
+//SuperTag* parseNBT(const vector<unsigned char>& decompressedData, size_t *index);
+//SuperTag* parseNBT(const vector<unsigned char>& decompressedData, size_t* index, bool justPayload = false, TagType type = TAG_NOT_EXIST);
 
 
-int32_t nextUTF8Char(size_t* index, vector<unsigned char>* decompressedData);
+int32_t nextUTF8Char(size_t* index, const vector<unsigned char>& decompressedData);
 
-CompoundTag* parseNBT(vector<unsigned char>* decompressedData, size_t* index);
-SuperTag* parseNBT(vector<unsigned char>* decompressedData, size_t* index, TagType type);
+CompoundTag parseNBT(vector<unsigned char>& decompressedData, size_t* index);
+SuperTag parseNBT(vector<unsigned char>& decompressedData, size_t* index, TagType type);
 
-Tag<int8_t>* parseByteTag(vector<unsigned char>* decompressedData, size_t* index, TagType type);
-Tag<int16_t>* parseShortTag(vector<unsigned char>* decompressedData, size_t* index, TagType type);
-Tag<int32_t>* parseIntTag(vector<unsigned char>* decompressedData, size_t* index, TagType type);
-Tag<int64_t>* parseLongTag(vector<unsigned char>* decompressedData, size_t* index, TagType type);
-Tag<float>* parseFloatTag(vector<unsigned char>* decompressedData, size_t* index, TagType type);
-Tag<double>* parseDoubleTag(vector<unsigned char>* decompressedData, size_t* index, TagType type);
-TagArray<int8_t>* parseByteArrayTag(vector<unsigned char>* decompressedData, size_t* index, TagType type);
-Tag<string>* parseStringTag(vector<unsigned char>* decompressedData, size_t* index, TagType type);
-TagArray<int32_t>* parseIntArrayTag(vector<unsigned char>* decompressedData, size_t* index, TagType type);
-TagArray<int64_t>* parseLongArrayTag(vector<unsigned char>* decompressedData, size_t* index, TagType type);
-CompoundTag* parseCompoundTag(vector<unsigned char>* decompressedData, size_t* index, TagType type);
-TagList* parseListTag(vector<unsigned char>* decompressedData, size_t* index, TagType type);
-void printTags(SuperTag* root);
+Tag<int8_t> parseByteTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
+Tag<int16_t> parseShortTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
+Tag<int32_t> parseIntTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
+Tag<int64_t> parseLongTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
+Tag<float> parseFloatTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
+Tag<double> parseDoubleTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
+TagArray<int8_t> parseByteArrayTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
+Tag<string> parseStringTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
+TagArray<int32_t> parseIntArrayTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
+TagArray<int64_t> parseLongArrayTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
+CompoundTag parseCompoundTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
+TagList parseListTag(const vector<unsigned char>& decompressedData, size_t* index, TagType type);
+void printTags(SuperTag root);

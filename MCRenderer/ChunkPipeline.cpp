@@ -31,9 +31,9 @@ pair<int32_t, int32_t> parseRegCoords(string filename)
 
 //takes the save folder, and decomprempresses the raw chunk data, then parses it into NBT format
 //it returns a map where the keys are the global chunk coordinates for the value that is the chunk in NBT format
-map<pair<int, int>, CompoundTag*> decompress(string saveFolder)
+map<pair<int, int>, CompoundTag> decompress(string saveFolder)
 {
-	map<pair<int, int>, CompoundTag*> toReturn = map<pair<int, int>, CompoundTag*>();
+	map<pair<int, int>, CompoundTag> toReturn;// = map<pair<int, int>, CompoundTag*>();
 	directory_iterator textureDir(saveFolder);
 	for (auto f : textureDir)
 	{
@@ -76,16 +76,16 @@ map<pair<int, int>, CompoundTag*> decompress(string saveFolder)
 				}
 				sos += 5;//this is a magical number, and i don't remember exactly what it means. I think it's the offset into the offset section of the file?
 
-				vector<unsigned char>* chunkData = new vector<unsigned char>;
-				int status = Deflate(&buffer[sos], sectorLength, [&](unsigned char c) {chunkData->push_back(c); });//decompress
+				vector<unsigned char> chunkData;
+				int status = Deflate(&buffer[sos], sectorLength, [&](unsigned char c) {chunkData.push_back(c); });//decompress
 				size_t initZero = 0;
-				CompoundTag* chunkNBT = parseNBT(chunkData, &initZero);//convert decompressed byte data to NBT format
+				CompoundTag chunkNBT = parseNBT(chunkData, &initZero);//convert decompressed byte data to NBT format
 
 				//get the x and z of the chunk
-				CompoundTag* root = chunkNBT->toCT();
-				CompoundTag* level = root->getTag("Level")->toCT();
-				int localChunkX = level->getTag("xPos")->toTag<int32_t>()->getValue();
-				int localChunkZ = level->getTag("zPos")->toTag<int32_t>()->getValue();
+				CompoundTag root = chunkNBT.toCT();
+				CompoundTag level = root.getTag("Level").toCT();
+				int localChunkX = level.getTag("xPos").toTag<int32_t>().getValue();
+				int localChunkZ = level.getTag("zPos").toTag<int32_t>().getValue();
 				//and convert it to global chunk coordinates
 				int globalChunkX = localChunkX + (regX * 32) + (regX < 0 ? 1 : 0);
 				int globalChunkZ = localChunkZ + (regZ * 32) + (regZ < 0 ? 1 : 0);
@@ -97,26 +97,69 @@ map<pair<int, int>, CompoundTag*> decompress(string saveFolder)
 	return toReturn;
 }
 
+//generates a 64 bit bit mask with <bits> 1s starting from the least most bit
+//so if you input 4, the output would be 000000...000000001111
+size_t generateMask(const size_t& bits)
+{
+	size_t toReturn = 0;
+	for (int i = 0; i < bits; i++)
+	{
+		toReturn++;
+		toReturn = toReturn << 1;
+	}
+	toReturn = toReturn >> 1;
+	return toReturn;
+}
+
+//a function to get a specific block's palette index based on the given
+//bitWidth. There's definetly a more efficient way of doing this if it were to be done
+//one block after another, but like...it works for now. so i'll put this here 
+//todo: make it better
+size_t getPaletteID(const vector<int64_t>& blockStates, const size_t& blockIndex, const size_t& bitWidth)
+{
+	size_t bitIndex = bitWidth * blockIndex;
+	size_t firstLongIndex = bitIndex / 64;
+	size_t secondLongIndex = (bitIndex + (bitWidth - 1)) / 64;
+	if (firstLongIndex == secondLongIndex)//it's all in one long
+	{
+		size_t toReturn = (blockStates[firstLongIndex] >> bitIndex % 64) & generateMask(bitWidth);
+		return toReturn;
+	}
+	else //it's in two longs
+	{
+		size_t bitWidthOfFirstHalf = 0;
+		while ((bitIndex / 64) < secondLongIndex)
+		{
+			bitWidthOfFirstHalf++;
+			bitIndex++;
+		}
+		size_t firstHalfValue = (blockStates[firstLongIndex] >> (64 - bitWidthOfFirstHalf)) & generateMask(bitWidthOfFirstHalf);
+		size_t secondHalfValue = (blockStates[secondLongIndex] & generateMask(bitWidth - bitWidthOfFirstHalf)) << bitWidthOfFirstHalf;
+		size_t toReturn = firstHalfValue | secondHalfValue;
+		return toReturn;
+	}
+}
+
 //Takes the NBT data describing a chunk and returns a Chunk object with the information neatly sorted in it in an easier to read manner.
-Chunk createChunk(CompoundTag* chunkNBT)
+Chunk createChunk(CompoundTag chunkNBT, Asset& ass)
 {
 	Chunk toReturn;
 
-	CompoundTag* root = chunkNBT;
-	CompoundTag* level = root->getTag("Level")->toCT();
+	CompoundTag root = chunkNBT;
+	CompoundTag level = root.getTag("Level").toCT();
 
-	toReturn.x = level->getTag("xPos")->toTag<int32_t>()->getValue();
-	toReturn.z = level->getTag("zPos")->toTag<int32_t>()->getValue();
+	toReturn.x = level.getTag("xPos").toTag<int32_t>().getValue();
+	toReturn.z = level.getTag("zPos").toTag<int32_t>().getValue();
 
-	//if (toReturn->x != 0 || toReturn->z != 0)//TODO::
+	//if (toReturn.x != 0 || toReturn.z != 0)//TODO::
 	//{
 	//	return nullptr;
 	//}
-	//printf("x and z = %i, %i\n", toReturn->x, toReturn->z);
+	//printf("x and z = %i, %i\n", toReturn.x, toReturn.z);
 
-	if (level->getValues().count("Biomes") > 1)
+	if (level.getValues().count("Biomes") > 1)
 	{
-		vector<int32_t> biomes = level->getTag("Biomes")->toTagArray<int32_t>()->getValues();
+		vector<int32_t> biomes = level.getTag("Biomes").toTagArray<int32_t>().getValues();
 		size_t i = 0;
 		for (size_t z = 0; z < 16; z++)
 		{
@@ -129,45 +172,45 @@ Chunk createChunk(CompoundTag* chunkNBT)
 			}
 		}
 	}
-	TagList* sections = level->getTag("Sections")->toList();
+	TagList sections = level.getTag("Sections").toList();
 
-	for (auto sec : sections->getValues())//for each section
+	for (auto sec : sections.getValues())//for each section
 	{
-		CompoundTag* section = sec->toCT();
+		CompoundTag section = sec.toCT();
 
-		if (section->values.count("BlockStates") > 0)//if it is a real section
+		if (section.values.count("BlockStates") > 0)//if it is a real section
 		{
 			Section toAdd;
-			toAdd.y = section->getTag("Y")->toTag<int8_t>()->getValue();
-			TagArray<int64_t>* blockStates = section->getTag("BlockStates")->toTagArray<int64_t>();
-			TagList* p = section->getTag("Palette")->toList();
+			toAdd.y = section.getTag("Y").toTag<int8_t>().getValue();
+			TagArray<int64_t> blockStates = section.getTag("BlockStates").toTagArray<int64_t>();
+			TagList p = section.getTag("Palette").toList();
 
-			for (auto pc : p->getValues())//for each item in the palette
+			for (auto pc : p.getValues())//for each item in the palette
 			{
-				CompoundTag* paletteCompound = pc->toCT();
+				CompoundTag paletteCompound = pc.toCT();
 				string name;
 				unordered_map<string, string> attributes;
-				for (const auto& [tagName, tag] : paletteCompound->getValues())//for each element of the item
+				for (auto& [tagName, tag] : paletteCompound.getValues())//for each element of the item
 				{
 					if (tagName == "Properties")
 					{
 						//printf("----\n");
-						CompoundTag* properties = tag->toCT();
-						for (const auto& [subTagName, subTag] : properties->getValues())//for each property
+						CompoundTag properties = tag.toCT();
+						for (auto& [subTagName, subTag] : properties.getValues())//for each property
 						{
-							//printf("subtagName/subtag %s, %s\n", subTagName.c_str(), subTag->toTag<string>()->getValue().c_str());
-							attributes[subTagName] = subTag->toTag<string>()->getValue();
+							//printf("subtagName/subtag %s, %s\n", subTagName.c_str(), subTag.toTag<string>().getValue().c_str());
+							attributes[subTagName] = subTag.toTag<string>().getValue();
 						}
 					}
 					if (tagName == "Name")
 					{
-						name = tag->toTag<string>()->getValue();
+						name = tag.toTag<string>().getValue();
 						//printf("name: %s\n", name.c_str());
 					}
 				}
-				toAdd.palette.push_back(ass->findModelFromAssets(name, attributes));
+				toAdd.palette.push_back(ass.findModelFromAssets(name, attributes));
 			}
-			size_t bitWidth = blockStates->getValues().size() / 64;//number of longs/64 is how many bits each one takes
+			size_t bitWidth = blockStates.getValues().size() / 64;//number of longs/64 is how many bits each one takes
 			for (size_t y = 0; y < 16; y++)
 			{
 				for (size_t z = 0; z < 16; z++)
@@ -175,7 +218,7 @@ Chunk createChunk(CompoundTag* chunkNBT)
 					for (size_t x = 0; x < 16; x++)
 					{
 						size_t blockIndex = (y * 256) + (z * 16) + x;
-						toAdd.blocks[y][z][x] = toAdd.palette[getPaletteID(blockStates->getValues(), blockIndex, bitWidth)];
+						toAdd.blocks[y][z][x] = toAdd.palette[getPaletteID(blockStates.getValues(), blockIndex, bitWidth)];
 					}
 				}
 			}
@@ -188,30 +231,27 @@ Chunk createChunk(CompoundTag* chunkNBT)
 
 //takes a map, where keys are global chunk coords, and values are the NBT data describing those chunks, and
 //converts it to a map where the keys are global chunk coords and the values are the Chunk objects that describe the chunks
-map<pair<int, int>, Chunk> createChunks(const map<pair<int, int>, CompoundTag*>& worldNBT)
+map<pair<int, int>, Chunk> createChunks(const map<pair<int, int>, CompoundTag>& worldNBT, Asset& ass)
 {
 	map<pair<int, int>, Chunk> toReturn = map<pair<int, int>, Chunk>();
 
-	for (pair<pair<int, int>, CompoundTag*> entry : worldNBT)
+	for (pair<pair<int, int>, CompoundTag> entry : worldNBT)
 	{
-		toReturn[entry.first] = createChunk(entry.second);
+		toReturn[entry.first] = createChunk(entry.second, ass);
 	}
 	return toReturn;
 }
 
 //returns whether the block at the coordinates has the cullForMe flag or not.
-bool cullForThisBlock(ivec3 coord, const map<pair<int, int>, Chunk*>& worldChunks)
+bool cullForThisBlock(ivec3 coord, const map<pair<int, int>, Chunk>& worldChunks)
 {
 	pair<int, int> chk = { coord.x >> 4, coord.z >> 4 };
 	if (worldChunks.count(chk) > 0) //if the chunk the block would exist in exists
 	{
 		int sec = coord.y >> 4;
-		if (worldChunks.at(chk)->sections.count(sec) > 0)//if the section it would be in exists
+		if (worldChunks.at(chk).sections.count(sec) > 0)//if the section it would be in exists
 		{
-			if (worldChunks.at(chk)->sections.at(sec)->blocks[coord.y][coord.z][coord.x].cullForMe) //if it should be culled for
-			{
-				return true; //duh
-			}
+			return worldChunks.at(chk).sections.at(sec).blocks[coord.y][coord.z][coord.x].cullForMe;
 		}
 	}
 	return false; //nope
@@ -256,11 +296,11 @@ uint8_t getSides(ivec3 global, const map<pair<int, int>, Chunk*>& worldChunks)
 
 //removes all the blocks that wouldn't be visible, and sets what sides should be visible in the model's sides int8
 //Returns the same map, just with the modified models in the chunks
-map<pair<int, int>, Chunk*> cullChunks(map<pair<int, int>, Chunk*>& worldChunks)
+map<pair<int, int>, Chunk> cullChunks(map<pair<int, int>, Chunk>& worldChunks)
 {
-	for (pair<pair<int, int>, Chunk*> chunk : worldChunks) //for each chunk
+	for (pair<pair<int, int>, Chunk> chunk : worldChunks) //for each chunk
 	{
-		for (pair<int, Section*> section : chunk.second->sections) //for each section in that chunk
+		for (pair<int, Section> section : chunk.second.sections) //for each section in that chunk
 		{
 			for (int y = 0; y < 16; y++)
 			{
@@ -270,13 +310,13 @@ map<pair<int, int>, Chunk*> cullChunks(map<pair<int, int>, Chunk*>& worldChunks)
 					{
 						ivec3 global = ivec3(x, y, z);
 
-						global.x += (chunk.second->x << 4);
-						global.z += (chunk.second->z << 4);
-						global.y += (section.second->y << 4);
+						global.x += (chunk.second.x << 4);
+						global.z += (chunk.second.z << 4);
+						global.y += (section.second.y << 4);
 
-						//Model curr = worldChunks[{chunk.first.first, chunk.first.second}]->sections.at(section.first)->blocks[y][z][x]; //lol
+						//Model curr = worldChunks[{chunk.first.first, chunk.first.second}].sections.at(section.first).blocks[y][z][x]; //lol
 
-						worldChunks[{chunk.first.first, chunk.first.second}]->sections.at(section.first)->blocks[y][z][x].faces = getSides(global, worldChunks);
+						worldChunks[{chunk.first.first, chunk.first.second}].sections.at(section.first).blocks[y][z][x].faces = getSides(global, worldChunks);
 
 					}
 				}

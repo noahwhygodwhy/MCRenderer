@@ -1,4 +1,4 @@
-#include "ChunkMaker.hpp"
+/*#include "ChunkMaker.hpp"
 
 using namespace std;
 
@@ -102,4 +102,4 @@ Chunk* createChunk(CompoundTag* chunkNBT)
 	}
 
 	return toReturn;
-}
+}*/
