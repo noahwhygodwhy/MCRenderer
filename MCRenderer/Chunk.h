@@ -68,22 +68,26 @@ namespace std
 	};
 }
 
+struct VertexChunk
+{
+	array<array<array<vector<Cuboid>, 256>, 16>, 16> cuboids;
+};
 struct Chunk
 {
 	int x;
 	int z;
-	unordered_map<uint32_t, Section*> sections;
+	unordered_map<uint32_t, Section> sections;
 	array<array<array<uint32_t, 64>, 4>, 4> biomes;
 };
 struct Region
 {
 	int x;
 	int z;
-	unordered_map<pair<int32_t, int32_t>, Chunk*> chunks;
+	unordered_map<pair<int32_t, int32_t>, Chunk> chunks;
 };
 struct World
 {
-	unordered_map<pair<int32_t, int32_t>, Region*> regions;
+	unordered_map<pair<int32_t, int32_t>, Region> regions;
 };
 
 #endif

@@ -28,6 +28,32 @@ struct Face
 };
 
 
+struct Cuboid
+{
+	Triangle triangles[12];
+};
+struct Triangle
+{
+	Vert verts[3];
+};
+struct Vert
+{
+	float x;
+	float y;
+	float z;
+	float u;
+	float v;
+	float t; //texture
+};
+
+/*struct VBODO
+{
+	uint64_t memOffset;
+	uint32_t count;
+	Cuboid* cuboids;
+};*/
+
+
 
 struct Element
 {
@@ -82,7 +108,10 @@ class Asset
 {
 	unsigned int largeTextureStack;
 	unordered_map<string, int> textureMap;
+	unordered_map<string, Model> models;
 	unordered_map<string, BlockState> assets;
+	vector<Cuboid> vboSource;
+	unordered_map<string, pair<long long int, long long int>> vboSourceMap;
 public:
 	Asset(const unordered_map<string, int>& tm);
 	~Asset();

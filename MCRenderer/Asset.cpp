@@ -23,6 +23,7 @@ unordered_map < string, string > Asset::parseAttributes(string src)
 	vector<string> bothHalves;
 	string str;
 	istringstream stri(src);
+	
 	while (getline(stri, str, ','))
 	{
 		bothHalves.push_back(str);
@@ -521,12 +522,17 @@ BlockState Asset::parseBlockstateJson(string filepath)
 	return toAdd;
 }
 
+pair<long long int, long long int> addModelToVBO(directory_entry modelFile)
+{
+
+}
+
 Asset::Asset(const unordered_map<string, int>& tm)
 {
 	printf("starting to create Asset\n");
 	textureMap = tm;
 
-	printf("loading jsons\n");
+	printf("loading blockstate jsons\n");
 	directory_iterator blockstateDir(BLOCKSTATE_DIR_PATH);
 	for (auto blockstateFile : blockstateDir)//for each blockstate
 	{
@@ -534,8 +540,10 @@ Asset::Asset(const unordered_map<string, int>& tm)
 		//{
 			//printf("parsing: %s\n", blockstateFile.path().filename().stem().u8string().c_str());
 			assets[blockstateFile.path().stem().u8string()] = parseBlockstateJson(blockstateFile.path().u8string());
+			
 		//}
 	}
+
 	printf("loaded all jsons\n");
 }
 

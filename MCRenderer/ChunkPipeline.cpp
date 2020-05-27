@@ -98,15 +98,15 @@ map<pair<int, int>, CompoundTag*> decompress(string saveFolder)
 }
 
 //Takes the NBT data describing a chunk and returns a Chunk object with the information neatly sorted in it in an easier to read manner.
-Chunk* createChunk(CompoundTag* chunkNBT)
+Chunk createChunk(CompoundTag* chunkNBT)
 {
-	Chunk* toReturn = new Chunk();
+	Chunk toReturn;
 
 	CompoundTag* root = chunkNBT;
 	CompoundTag* level = root->getTag("Level")->toCT();
 
-	toReturn->x = level->getTag("xPos")->toTag<int32_t>()->getValue();
-	toReturn->z = level->getTag("zPos")->toTag<int32_t>()->getValue();
+	toReturn.x = level->getTag("xPos")->toTag<int32_t>()->getValue();
+	toReturn.z = level->getTag("zPos")->toTag<int32_t>()->getValue();
 
 	//if (toReturn->x != 0 || toReturn->z != 0)//TODO::
 	//{
@@ -124,7 +124,7 @@ Chunk* createChunk(CompoundTag* chunkNBT)
 			{
 				for (size_t y = 0; y < 64; y++)
 				{
-					toReturn->biomes[y][z][x] = biomes[i++];
+					toReturn.biomes[y][z][x] = biomes[i++];
 				}
 			}
 		}
@@ -137,8 +137,8 @@ Chunk* createChunk(CompoundTag* chunkNBT)
 
 		if (section->values.count("BlockStates") > 0)//if it is a real section
 		{
-			Section* toAdd = new Section();
-			toAdd->y = section->getTag("Y")->toTag<int8_t>()->getValue();
+			Section toAdd;
+			toAdd.y = section->getTag("Y")->toTag<int8_t>()->getValue();
 			TagArray<int64_t>* blockStates = section->getTag("BlockStates")->toTagArray<int64_t>();
 			TagList* p = section->getTag("Palette")->toList();
 
@@ -165,7 +165,7 @@ Chunk* createChunk(CompoundTag* chunkNBT)
 						//printf("name: %s\n", name.c_str());
 					}
 				}
-				toAdd->palette.push_back(ass->findModelFromAssets(name, attributes));
+				toAdd.palette.push_back(ass->findModelFromAssets(name, attributes));
 			}
 			size_t bitWidth = blockStates->getValues().size() / 64;//number of longs/64 is how many bits each one takes
 			for (size_t y = 0; y < 16; y++)
@@ -175,11 +175,11 @@ Chunk* createChunk(CompoundTag* chunkNBT)
 					for (size_t x = 0; x < 16; x++)
 					{
 						size_t blockIndex = (y * 256) + (z * 16) + x;
-						toAdd->blocks[y][z][x] = toAdd->palette[getPaletteID(blockStates->getValues(), blockIndex, bitWidth)];
+						toAdd.blocks[y][z][x] = toAdd.palette[getPaletteID(blockStates->getValues(), blockIndex, bitWidth)];
 					}
 				}
 			}
-			toReturn->sections[toAdd->y] = toAdd;
+			toReturn.sections[toAdd.y] = toAdd;
 		}
 	}
 
@@ -188,9 +188,9 @@ Chunk* createChunk(CompoundTag* chunkNBT)
 
 //takes a map, where keys are global chunk coords, and values are the NBT data describing those chunks, and
 //converts it to a map where the keys are global chunk coords and the values are the Chunk objects that describe the chunks
-map<pair<int, int>, Chunk*> createChunks(const map<pair<int, int>, CompoundTag*>& worldNBT)
+map<pair<int, int>, Chunk> createChunks(const map<pair<int, int>, CompoundTag*>& worldNBT)
 {
-	map<pair<int, int>, Chunk*> toReturn = map<pair<int, int>, Chunk*>();
+	map<pair<int, int>, Chunk> toReturn = map<pair<int, int>, Chunk>();
 
 	for (pair<pair<int, int>, CompoundTag*> entry : worldNBT)
 	{
@@ -284,4 +284,9 @@ map<pair<int, int>, Chunk*> cullChunks(map<pair<int, int>, Chunk*>& worldChunks)
 		}
 	}
 	return worldChunks;
+}
+
+map<pair<int, int>, VertexChunk*> verticizeChunks(const map<pair<int, int>, Chunk*>& culledChunks)
+{
+	map<pair<int, int>, VertexChunk>//todo;;
 }
