@@ -16,17 +16,6 @@ static const string TEXTURE_DIR_PATH = "../MCRenderer/minecraft/textures/";
 static const string MODEL_DIR_PATH = "../MCRenderer/minecraft/models/";
 static const string BLOCKSTATE_DIR_PATH = "../MCRenderer/minecraft/blockstates/";
 
-struct Face
-{
-	int texture = 0;
-	uint8_t cullFace = 0b00000000;
-	ivec4 uv = ivec4(0, 0, 16, 16);
-	vec3 tint = vec3(0, 0, 0);
-	int rotation = 0;//TODO handle texture rotation, not just block rotation
-	int tintIndex = -1;
-	//todo tint index
-};
-
 
 struct Vert
 {
@@ -46,13 +35,17 @@ struct Cuboid
 	Triangle triangles[12];
 };
 
-/*struct VBODO
-{
-	uint64_t memOffset;
-	uint32_t count;
-	Cuboid* cuboids;
-};*/
 
+
+struct Face
+{
+	int texture = 0;
+	uint8_t cullFace = 0b00000000;
+	ivec4 uv = ivec4(0, 0, 16, 16);
+	int rotation = 0;//TODO handle texture rotation, not just block rotation
+	//int tintIndex = -1;
+	//todo tint index
+};
 
 
 struct Element
@@ -63,8 +56,10 @@ struct Element
 	Face south;
 	Face west;
 	Face east;
-	vec3 from = vec3(0, 0, 0);
-	vec3 to = vec3(16, 16, 16);
+	ivec3 from = ivec3(0, 0, 0);
+	ivec3 to = ivec3(16, 16, 16);
+
+	ivec3 tint = ivec3(0, 0, 0);
 	int xRot = 0;
 	int yRot = 0;
 	bool uvLock = false;

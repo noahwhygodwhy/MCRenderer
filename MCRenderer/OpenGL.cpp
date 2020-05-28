@@ -277,8 +277,8 @@ unordered_map<string, int> OpenGL::loadTextures(string path)
 	printf("layerCount: %i\n", layerCount);
 
 
-	glGenTextures(1, &largeTextureStack);
-	glBindTexture(GL_TEXTURE_2D_ARRAY, largeTextureStack);
+	glGenTextures(1, &(this->largeTextureStack));
+	glBindTexture(GL_TEXTURE_2D_ARRAY, this->largeTextureStack);
 
 	glTexStorage3D(GL_TEXTURE_2D_ARRAY, mipLevelCount, GL_RGBA8, width, height, layerCount);
 

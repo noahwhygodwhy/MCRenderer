@@ -88,7 +88,8 @@ unordered_map<pair<int32_t, int32_t>, CompoundTag*> decompress(string saveFolder
 				int globalChunkX = localChunkX + (regX * 32) + (regX < 0 ? 1 : 0);
 				int globalChunkZ = localChunkZ + (regZ * 32) + (regZ < 0 ? 1 : 0);
 
-				toReturn[pair(globalChunkX, globalChunkZ)] = chunkNBT;
+				if(globalChunkZ >= 0 && globalChunkZ <=15 && globalChunkX >= 0 && globalChunkX <= 15)
+					toReturn[pair(globalChunkX, globalChunkZ)] = chunkNBT;
 			}
 		}
 	}
@@ -149,6 +150,7 @@ Chunk* createChunk(CompoundTag* chunkNBT, Asset& ass)
 	toReturn->x = level->getTag("xPos")->toTag<int32_t>()->getValue();
 	toReturn->z = level->getTag("zPos")->toTag<int32_t>()->getValue();
 
+	printf("creating Chunk %i, %i\n", toReturn->x, toReturn->z);
 	//if (toReturn.x != 0 || toReturn.z != 0)//TODO::
 	//{
 	//	return nullptr;
@@ -249,6 +251,7 @@ bool cullForThisBlock(ivec3 coord, const unordered_map<pair<int32_t, int32_t>, C
 		int sec = coord.y >> 4;
 		if (worldChunks.at(chk)->sections.count(sec) > 0)//if the section it would be in exists
 		{
+			
 			return worldChunks.at(chk)->sections.at(sec)->blocks[coord.y][coord.z][coord.x].cullForMe;
 		}
 	}

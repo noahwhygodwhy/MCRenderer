@@ -37,7 +37,7 @@ struct VertToBeRendered
 
 class OpenGL
 {
-	unsigned int largeTextureStack;
+	unsigned int largeTextureStack = 0;
 	int screenX;
 	int screenY;
 	Camera cam;
