@@ -9,7 +9,7 @@ using namespace std;
 
 string fileToString(string filename)
 {
-	printf("opening file %s\n", filename);
+	printf("opening file %s\n", filename.c_str());
 	
 	string content;
 	int length;

@@ -6,6 +6,8 @@
 #include <cstdint>
 #include <vector>
 #include <unordered_map>
+#include <map>
+
 #include "Asset.hpp"
 using namespace std;
 
@@ -68,7 +70,6 @@ namespace std
 		}
 	};
 
-
 	template<>
 	struct equal_to<pair<int32_t, int32_t>>
 	{
@@ -87,7 +88,7 @@ struct Chunk
 {
 	int x;
 	int z;
-	unordered_map<uint32_t, Section> sections;
+	unordered_map<uint32_t, Section*> sections;
 	array<array<array<uint32_t, 64>, 4>, 4> biomes;
 };
 struct Region

@@ -6,6 +6,7 @@
 #include <vector>
 #include <sstream>
 #include "json.hpp"
+#include "Chunk.h"
 
 
 //#define STB_IMAGE_IMPLEMENTATION

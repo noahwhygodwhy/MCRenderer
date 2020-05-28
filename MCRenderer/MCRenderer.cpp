@@ -1,5 +1,6 @@
 #include <filesystem>
 #include <map>
+#include <unordered_map>
 #include "OpenGL.h"
 #include "RegionLoader.h"
 #include "Asset.hpp"
@@ -17,30 +18,6 @@ using namespace std::filesystem;
 static string saveFolder = "..\\MCRenderer\\GeneralWorld\\region\\";
 
 
-struct pairHash
-{
-public:
-	size_t operator ()(const pair<int32_t, int32_t>& value) const
-	{
-		uint64_t key = ((uint64_t)value.first) << 32 | (uint64_t)value.second;
-		key ^= (key >> 33);
-		key *= 0xff51afd7ed558ccd;
-		key ^= (key >> 33);
-		key *= 0xc4ceb9fe1a85ec53;
-		key ^= (key >> 33);
-		return (size_t)key;
-	}
-};
-
-
-struct pairEqualTo
-{
-	bool operator ()(const pair<int32_t, int32_t>& v1, const pair<int32_t, int32_t>& v2) const
-	{
-		return (v1.first == v2.first) && (v1.second == v2.second);
-	}
-};
-
 int main(void)
 {
 
@@ -50,10 +27,10 @@ int main(void)
 	Asset ass(textureMap);
 	ogl.initializeOpenGL();
 
-	unordered_map<pair<int, int>, CompoundTag> worldNBT;// = unordered_map<pair<int, int>, CompoundTag>();
-	unordered_map<pair<int, int>, Chunk> worldChunks;
-	unordered_map<pair<int, int>, Chunk> culledChunks;
-	unordered_map<pair<int, int>, VertexChunk> vertChunks;
+	unordered_map<pair<int32_t, int32_t>, CompoundTag*> worldNBT;// = unordered_map<pair<int, int>, CompoundTag>();
+	unordered_map<pair<int32_t, int32_t>, Chunk*> worldChunks;
+	unordered_map<pair<int32_t, int32_t>, Chunk*> culledChunks;
+	unordered_map<pair<int32_t, int32_t>, VertexChunk*> vertChunks;
 
 	worldNBT = decompress(saveFolder);
 
