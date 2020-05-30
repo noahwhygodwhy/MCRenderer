@@ -284,7 +284,7 @@ unordered_map<string, int> OpenGL::loadTextures(string path)
 	glGenTextures(1, &(this->largeTextureStack));
 	glBindTexture(GL_TEXTURE_2D_ARRAY, this->largeTextureStack);
 
-	glTexStorage3D(GL_TEXTURE_2D_ARRAY, mipLevelCount, GL_RGBA8, width, height, layerCount);
+	glTexStorage3D(GL_TEXTURE_2D_ARRAY, mipLevelCount, GL_SRGB8_ALPHA8, width, height, layerCount);
 
 	for (int32_t i = 0; i < sixteenImages.size(); i++)
 	{
@@ -365,6 +365,12 @@ void OpenGL::run(const unordered_map<pair<int32_t, int32_t>, vector<Vert>>& vert
 
 	vector<Vert> originChunk = vertisizedChunks.at({0, 0});
 	printf("there are %u vertices\n", originChunk.size());
+
+	for (int i = 0; i < 100; i++)
+	{
+		Vert a = originChunk.at(i);
+		printf("X:%f, Y:%f, Z:%f, U:%f, V:%f, T:%f\n", a.coord.x, a.coord.y, a.coord.z, a.uv.x, a.uv.y, a.texIndex);
+	}
 
 	size_t sizeInBytes = originChunk.size() * sizeof(Vert);
 
