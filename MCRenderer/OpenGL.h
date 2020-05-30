@@ -8,9 +8,6 @@
 #include "glad.h"
 #include <GLFW/glfw3.h>
 #include "GLSLReader.h"
-#include "glm/glm.hpp"
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 #include "Shader.h"
 #include "Camera.h"
 #include <map>
@@ -49,10 +46,10 @@ public:
 	OpenGL(int screenX, int screenY);
 	~OpenGL();
 	void initializeOpenGL();
-	void run(const vector<VertToBeRendered>& faces);
+	void run(const unordered_map<pair<int32_t, int32_t>, vector<Vert>>& vertisizedChunks);
 	unordered_map<string, int> loadTextures(string path);
-	vector<VertToBeRendered> convertWorldToVerts(const vector<culledModel>& culledWorld);
-	void addFace(vector<VertToBeRendered>& verts, const vec3& a, const vec3& b, const vec3& c, const vec3& d, vec4 uv, int texRotation, int uvRotation, bool uvLock, int texture);
+	//vector<Vert> convertWorldToVerts(const vector<culledModel>& culledWorld);
+	//void addFace(vector<Vert>& verts, const vec3& a, const vec3& b, const vec3& c, const vec3& d, vec4 uv, int texRotation, int uvRotation, bool uvLock, int texture);
 
 private:
 	float normalizeTexture(const int& texID);

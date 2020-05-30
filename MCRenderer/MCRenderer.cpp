@@ -38,9 +38,6 @@ int main(void)
 	printf("initializing openGL\n");
 	printf("initialized\n");
 
-	printf("size of chunk: %i\n", sizeof(Chunk));
-	printf("size of section: %i\n", sizeof(Section));
-	printf("size of vertexChunk: %i\n", sizeof(VertexChunk));
 	
 
 	time_t start;
@@ -51,27 +48,19 @@ int main(void)
 	worldNBT = decompress(saveFolder);
 	printf("decompressed in %i seconds\n", time(0) - start);
 
-	unordered_map<pair<int32_t, int32_t>, Chunk*> worldChunks;
-	start = time(0);
-	printf("creating chunks\n");
-	worldChunks = createChunks(worldNBT, ass);
-	printf("created chunks in %i seconds\n", time(0) - start);
-
-	unordered_map<pair<int32_t, int32_t>, Chunk*> culledChunks;
-	start = time(0);
-	printf("culling chunks\n");
-	culledChunks = cullChunks(worldChunks);
-	printf("culled chunks in %i seconds\n", time(0) - start);
-
-	unordered_map<pair<int32_t, int32_t>, VertexChunk*> vertChunks;
+	unordered_map<pair<int32_t, int32_t>, vector<Vert>> vertChunks;
 	start = time(0);
 	printf("verticizing chunks\n");
-	vertChunks = verticizeChunks(worldChunks);
+	vertChunks = verticizeChunks(worldNBT, ass);
 	printf("verticized chunks in %i seconds\n", time(0) - start);
 
 	//TODO: see how the performance of frame by frame face gen is, and if it's to slow, this is where you would bake them before sending them to ogl
+	printf("sizeof vertChunks: %i\n",  sizeof(vertChunks));
+	printf("%f\n", vertChunks.load_factor());
+	printf("%u\n", vertChunks.bucket_count());
+	printf("sizeof vertChunks: %i\n", sizeof(vertChunks));
 
-	//ogl.run(vertChunks);
+	ogl.run(vertChunks);
 
 
 	

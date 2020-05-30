@@ -4,6 +4,7 @@
 #include "RegionLoader.h"
 #include "Asset.hpp"
 #define STB_IMAGE_IMPLEMENTATION
+#include "Chunk.h"
 #include "OpenGL.h"
 #include "Shader.h"
 #include <vector>
@@ -91,7 +92,7 @@ OpenGL::OpenGL(int x, int y)
 	VAO = 0;
 	screenX = x;
 	screenY = y;
-	cam = Camera(vec3(0, 5, 0), vec3(0, 1, 0), 0, 0, 10, 1, 1);
+	cam = Camera(vec3(0, 0, 0), vec3(0, 1, 0), 0, 0, 10, 1, 1);
 	window = glfwCreateWindow(x, y, "Title Goes here", NULL, NULL);
 }
 
@@ -99,14 +100,17 @@ OpenGL::~OpenGL()
 {
 }
 
+/*
 vec3 adjust(const float& x, const float& y, const float& z)
 {
 	return fvec3(( x / 16.0f), (y / 16.0f), (z / 16.0f));
 }
-float OpenGL::normalizeTexture(const int& texID)
+*/float OpenGL::normalizeTexture(const int& texID)
 {
 	return (float) std::max(0, std::min(layerCount - 1, (int)floor(texID + 0.5f)));
 }
+
+/*
 
 vec4 rotateAroundCenter(const mat4& rm, const vec4& b)
 {
@@ -128,7 +132,7 @@ vec2 rot90(vec2 v)
 	return vec2( v.y, 1.0f-v.x);
 }
 
-void OpenGL::addFace(vector<VertToBeRendered>& verts, const vec3& a, const vec3& b, const vec3& c, const vec3& d, vec4 uv, int texRotation, int uvRotation, bool uvLock, int texture)
+void OpenGL::addFace(vector<Vert>& verts, const vec3& a, const vec3& b, const vec3& c, const vec3& d, vec4 uv, int texRotation, int uvRotation, bool uvLock, int texture)
 {
 	vec2 uv00 = vec2(uv.x, uv.y) / 16.0f;
 	vec2 uv01 = vec2(uv.x, uv.w) / 16.0f;
@@ -151,10 +155,10 @@ void OpenGL::addFace(vector<VertToBeRendered>& verts, const vec3& a, const vec3&
 	}
 	
 
-	VertToBeRendered v00(a, uv00, texture);
-	VertToBeRendered v01(b, uv01, texture);
-	VertToBeRendered v11(c, uv11, texture);
-	VertToBeRendered v10(d, uv10, texture);
+	Vert v00(a, uv00, texture);
+	Vert v01(b, uv01, texture);
+	Vert v11(c, uv11, texture);
+	Vert v10(d, uv10, texture);
 
 	verts.push_back(v00);
 	verts.push_back(v11);
@@ -165,7 +169,7 @@ void OpenGL::addFace(vector<VertToBeRendered>& verts, const vec3& a, const vec3&
 	verts.push_back(v11);
 }
 
-vector<VertToBeRendered> OpenGL::convertWorldToVerts(const vector<culledModel>& culledWorld)
+vector<Vert> OpenGL::convertWorldToVerts(const vector<culledModel>& culledWorld)
 {
 	printf("converting to verts\n");
 
@@ -178,7 +182,7 @@ vector<VertToBeRendered> OpenGL::convertWorldToVerts(const vector<culledModel>& 
 	vec3 nnp;
 	vec3 nnn;
 
-	vector<VertToBeRendered> verts;
+	vector<Vert> verts;
 	for (culledModel cm: culledWorld)//for each block that might exist
 	{	
 		for (Element e : cm.m.elements)//for each element of that block that might exist
@@ -225,7 +229,7 @@ vector<VertToBeRendered> OpenGL::convertWorldToVerts(const vector<culledModel>& 
 	printf("converted to verts\n");
 	return verts;
 }
-
+*/
 unordered_map<string, int> OpenGL::loadTextures(string path)
 {
 	unordered_map<string, int> toReturn;
@@ -338,7 +342,7 @@ void OpenGL::initializeOpenGL()
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	
-	GLsizei stride = sizeof(VertToBeRendered);
+	GLsizei stride = sizeof(Vert);
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)0); //position
 	glEnableVertexAttribArray(0);
@@ -352,13 +356,44 @@ void OpenGL::initializeOpenGL()
 }
 
 
-void OpenGL::run(const vector<VertToBeRendered>& verts)
+void OpenGL::run(const unordered_map<pair<int32_t, int32_t>, vector<Vert>>& vertisizedChunks)
 {
 	glBindTexture(GL_TEXTURE_2D_ARRAY, largeTextureStack);
 	glClearColor(0.529f, 0.808f, 0.922f, 1.0f);
 	glBindVertexArray(VAO);
 
-	glBufferData(GL_ARRAY_BUFFER, verts.size() * sizeof(VertToBeRendered), verts.data(), GL_STATIC_DRAW);
+
+	vector<Vert> originChunk = vertisizedChunks.at({0, 0});
+	printf("there are %u vertices\n", originChunk.size());
+
+	size_t sizeInBytes = originChunk.size() * sizeof(Vert);
+
+
+	glBufferData(GL_ARRAY_BUFFER, originChunk.size(), originChunk.data(), GL_STATIC_DRAW);
+
+
+	size_t offset = 0;
+	//glBufferSubData(GL_ARRAY_BUFFER, offset, sizeInBytes, originChunk.data());
+
+
+	/*size_t totalSize = 0;
+	for (const auto& v : vertisizedChunks)
+	{
+		totalSize += v.second.size();
+	}
+	printf("totalsize is %u\n", totalSize * sizeof(Vert));
+
+
+	glBufferData(GL_ARRAY_BUFFER, totalSize * sizeof(Vert), 0, GL_STATIC_DRAW);
+
+	size_t offset = 0;
+	for (const auto& v : vertisizedChunks)
+	{
+		glBufferSubData(GL_ARRAY_BUFFER, offset, v.second.size()*sizeof(Vert), v.second.data());
+		offset += v.second.size() * sizeof(Vert);
+	}
+
+	printf("totalOffset is %u\n", offset);*/
 
 	shader.setInt("layerCount", layerCount);
 
@@ -368,6 +403,8 @@ void OpenGL::run(const vector<VertToBeRendered>& verts)
 
 		glClear(GL_COLOR_BUFFER_BIT);
 		glClear(GL_DEPTH_BUFFER_BIT);
+
+		//TODO: get two boxes rendering, then work on the larger pictures
 
 		float currentFrame = glfwGetTime();
 		deltaTime = currentFrame - lastFrame;
@@ -381,7 +418,8 @@ void OpenGL::run(const vector<VertToBeRendered>& verts)
 		mat4 projection = perspective(radians(70.0f), (float)screenX / (float)screenY, 0.1f, 256.0f);
 		shader.setMatFour("projection", projection);
 
-		glDrawArrays(GL_TRIANGLES, 0, verts.size());
+		//glDrawArrays(GL_TRIANGLES, 0, originChunk.size());
+		glDrawArrays(GL_TRIANGLES, 0, originChunk.size());
 		
 		glfwSwapBuffers(window);
 		glfwPollEvents();

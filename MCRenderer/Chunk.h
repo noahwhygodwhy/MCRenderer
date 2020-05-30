@@ -80,10 +80,6 @@ namespace std
 	};
 }
 
-struct VertexChunk
-{
-	array<array<array<vector<Cuboid>, 256>, 16>, 16> cuboids;
-};
 struct Chunk
 {
 	int x;

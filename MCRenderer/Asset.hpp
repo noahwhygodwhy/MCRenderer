@@ -1,10 +1,13 @@
 #pragma once
+
 #include <vector>
 #include <string>
 #include <unordered_map>
 #include <string_view>
 #include "json.hpp"
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 using namespace std;
 
@@ -19,21 +22,25 @@ static const string BLOCKSTATE_DIR_PATH = "../MCRenderer/minecraft/blockstates/"
 
 struct Vert
 {
-	float x;
-	float y;
-	float z;
-	float u;
-	float v;
-	float t; //texture
+
+	fvec3 coord;
+	fvec2 uv;
+	float texIndex;
+	Vert(vec3 c, vec2 u, float t)
+	{
+		coord = c;
+		uv = u;
+		texIndex = t;
+	}
 };
-struct Triangle
+/*struct Triangle
 {
 	Vert verts[3];
 };
 struct Cuboid
 {
 	Triangle triangles[12];
-};
+};*/
 
 
 
@@ -69,12 +76,14 @@ struct Element
 //multiple textures at same time
 struct Model
 {
+
+	vec3 coords;
 	vector<Element> elements;
 	string model = "NULL";
 	uint8_t faces = 0b00111111;
 	//todo: int weight = 1;?
 	bool AmbOcc = true;
-	bool cullForMe = false;
+	bool cullForMe = false; //todo: why is this false by default?
 	//todo: particle?
 };
 
@@ -105,8 +114,6 @@ class Asset
 	unordered_map<string, int> textureMap;
 	unordered_map<string, Model> models;
 	unordered_map<string, BlockState> assets;
-	vector<Cuboid> vboSource;
-	unordered_map<string, pair<long long int, long long int>> vboSourceMap;
 public:
 	Asset(const unordered_map<string, int>& tm);
 	~Asset();

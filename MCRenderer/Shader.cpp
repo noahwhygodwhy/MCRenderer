@@ -1,9 +1,6 @@
 
 #include <iostream>
 #include <string>
-#include "GLSLReader.h"
-#include <glm/glm.hpp>
-#include <glm/gtc/type_ptr.hpp>
 #include "Shader.h"
 using namespace glm;
 using namespace std;

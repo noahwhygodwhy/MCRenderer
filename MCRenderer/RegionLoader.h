@@ -13,7 +13,6 @@
 #include <utility>
 #include <unordered_map>
 #include "Asset.hpp"
-#include <glm/glm.hpp>
 #include <filesystem>
 
 using namespace std;

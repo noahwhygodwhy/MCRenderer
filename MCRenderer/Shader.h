@@ -5,8 +5,7 @@
 #include "glad.h"
 
 #include "GLSLReader.h"
-#include <glm/glm.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include "Asset.hpp"
 #include <string>
 #include <fstream>
 #include <sstream>
